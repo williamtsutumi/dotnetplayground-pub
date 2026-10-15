@@ -1,0 +1,31 @@
+:is(.hub-post, #post-editor-field) .post-markdown { margin: 5px 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.5; }
+:is(.hub-post, #post-editor-field) .post-markdown-rendered { white-space: normal; }
+:is(.hub-post, #post-editor-field) .post-markdown > :first-child { margin-top: 0; }
+:is(.hub-post, #post-editor-field) .post-markdown > :last-child { margin-bottom: 0; }
+:is(.hub-post, #post-editor-field) .post-markdown p { white-space: normal; line-height: inherit; margin: 0 0 1em; }
+:is(.hub-post, #post-editor-field) .post-markdown :is(h1,h2,h3,h4,h5,h6) { margin: 1.4em 0 .6em; font-weight: 700; line-height: 1.3; }
+:is(.hub-post, #post-editor-field) .post-markdown h1 { font-size: 1.8rem; }
+:is(.hub-post, #post-editor-field) .post-markdown h2 { font-size: 1.5rem; }
+:is(.hub-post, #post-editor-field) .post-markdown h3 { font-size: 1.25rem; }
+:is(.hub-post, #post-editor-field) .post-markdown :is(h4,h5,h6) { font-size: 1.05rem; }
+:is(.hub-post, #post-editor-field) .post-markdown :is(ul,ol) { margin: 0 0 1em; padding-left: 1.7em; }
+:is(.hub-post, #post-editor-field) .post-markdown li { margin: .3em 0; }
+:is(.hub-post, #post-editor-field) .post-markdown li > :is(ul,ol) { margin-bottom: 0; }
+:is(.hub-post, #post-editor-field) .post-markdown blockquote { border-left: 3px solid var(--accent); padding: .7em 1.1em; margin: 1em 0; background: var(--bg); color: var(--muted); border-radius: 0 8px 8px 0; }
+:is(.hub-post, #post-editor-field) .post-markdown blockquote > :last-child { margin-bottom: 0; }
+:is(.hub-post, #post-editor-field) .post-markdown code { color: #d3e9b9; background: var(--bg); padding: .15em .4em; border-radius: 5px; font-size: .9em; }
+:is(.hub-post, #post-editor-field) .post-markdown pre { padding: 18px; margin: 1em 0; background: #0b1011; border: 1px solid var(--line); border-radius: 10px; overflow-x: auto; white-space: pre; }
+:is(.hub-post, #post-editor-field) .post-markdown pre code { padding: 0; background: transparent; color: var(--text); }
+:is(.hub-post, #post-editor-field) .post-markdown a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+:is(.hub-post, #post-editor-field) .post-markdown a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+:is(.hub-post, #post-editor-field) .post-markdown img { max-width: 100%; height: auto; border-radius: 8px; }
+:is(.hub-post, #post-editor-field) .post-markdown table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 1em 0; }
+:is(.hub-post, #post-editor-field) .post-markdown :is(th,td) { border: 1px solid var(--line); padding: 10px 14px; }
+:is(.hub-post, #post-editor-field) .post-markdown th { background: var(--hover); }
+:is(.hub-post, #post-editor-field) .post-markdown hr { border: 0; border-top: 1px solid var(--line); margin: 1.5em 0; opacity: 1; }
+:is(.hub-post, #post-editor-field) .post-markdown input[type="checkbox"] { margin-right: .5em; accent-color: var(--accent); }
+.post-card-link .post-markdown :is(a, pre, table) { position: relative; z-index: 2; }
+.post-card-link .post-markdown img { max-height: 280px; object-fit: contain; }
+:is(.hub-post, #post-editor-field) .post-markdown .markdown-code-file { margin: 1em 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+:is(.hub-post, #post-editor-field) .post-markdown .markdown-code-file figcaption { padding: 9px 18px; background: var(--hover); color: var(--text); border-bottom: 1px solid var(--line); font-family: monospace; font-size: .85em; overflow-wrap: anywhere; }
+:is(.hub-post, #post-editor-field) .post-markdown .markdown-code-file pre { margin: 0; border: 0; border-radius: 0; }

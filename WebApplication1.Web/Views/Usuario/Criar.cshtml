@@ -1,0 +1,51 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@{
+    ViewData["Title"] = Localizer["AccountCreateAction"];
+    Layout = "_LayoutLoggedOut";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+}
+<div class="login-shell w-100">
+    <a asp-controller="Usuario" asp-action="Login" class="btn btn-outline-secondary mb-3" aria-label="@Localizer["RegistrationBackToLoginAccessibleLabel"]">
+        <span aria-hidden="true">←</span> @Localizer["SharedBackAction"]
+    </a>
+    <section class="card border-0 shadow-sm w-100">
+        <div class="card-body p-4 p-md-5">
+            <p class="login-eyebrow">@Localizer["AccountAccessEyebrow"]</p>
+            <h1 class="h3 mb-2">@Localizer["AccountCreateAction"]</h1>
+            <p class="login-description">@Localizer["RegisterDescription"]</p>
+            <form id="registration-form" data-password-mismatch="@Localizer["PasswordMismatch"]" data-saving="@Localizer["RegistrationSavingStatus"]" data-access-error="@Localizer["RegistrationAccessError"]" data-connection-error="@Localizer["RegistrationConnectionError"]" data-registration-success="@Localizer["RegistrationSuccess"]" data-save-error="@Localizer["RegistrationSaveError"]" method="post" asp-controller="Usuario" asp-action="Salvar">
+                <p id="registration-status" role="status" aria-live="polite"></p>
+                <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+                <div class="mb-3">
+                    <label for="nome" class="form-label">@Localizer["RegistrationUsernameLabel"]</label>
+                    <input id="nome" name="Nome" class="form-control" autocomplete="username" maxlength="50" pattern="\S+" title="@Localizer["UsernameNoWhitespace"]" data-whitespace-error="@Localizer["UsernameNoWhitespace"]" required />
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">@Localizer["RegistrationEmailLabel"]</label>
+                    <input id="email" name="Email" type="email" class="form-control" autocomplete="email" maxlength="255" required />
+                </div>
+                <div class="mb-4">
+                    <label for="senha" class="form-label">@Localizer["AccountPasswordLabel"]</label>
+                    <input id="senha" name="senha" type="password" class="form-control" autocomplete="new-password" minlength="8" aria-describedby="senha-ajuda" required />
+                    <small id="senha-ajuda" class="login-description">@Localizer["PasswordHelp"]</small>
+                </div>
+                <div class="mb-4">
+                    <label for="confirmar-senha" class="form-label">@Localizer["ConfirmPassword"]</label>
+                    <input id="confirmar-senha" type="password" class="form-control" autocomplete="new-password" minlength="8" maxlength="128" required />
+                </div>
+                <div style="display: none;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="TiposPerfil" id="perfil-usuario" value="0" checked/>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">@Localizer["AccountCreateAction"]</button>
+            </form>
+            <a asp-action="Login" class="btn btn-secondary w-100 mt-3">@Localizer["HaveAccount"]</a>
+        </div>
+    </section>
+</div>
+@section Scripts {
+    <script src="~/js/registration.js" asp-append-version="true"></script>
+}

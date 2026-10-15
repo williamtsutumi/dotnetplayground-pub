@@ -1,0 +1,15 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+<div class="dropdown site-settings">
+    <button type="button" class="icon-button navbar-dropdown-toggle" id="settings-menu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" aria-label="@Localizer["SiteSettings"]" title="@Localizer["SiteSettings"]">
+        <i class="fa-solid fa-gear fa-lg" aria-hidden="true"></i>
+    </button>
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="settings-menu">
+        <fieldset class="theme-options">
+            <legend>@Localizer["SiteTheme"]</legend>
+            <label><input type="radio" name="site-theme" value="light" /> <span>@Localizer["ThemeLight"]</span></label>
+            <label><input type="radio" name="site-theme" value="dark" checked /> <span>@Localizer["ThemeDark"]</span></label>
+        </fieldset>
+        <hr class="dropdown-divider" />
+        <partial name="_LanguageDropdown" view-data='new ViewDataDictionary(ViewData) { ["LanguageAsRadio"] = true }' />
+    </div>
+</div>

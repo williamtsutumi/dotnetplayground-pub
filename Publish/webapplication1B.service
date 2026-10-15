@@ -1,0 +1,20 @@
+[Unit]
+Description=ASP.NET Core WebApplication1
+After=network.target
+
+
+[Service]
+WorkingDirectory=/home/ec2-user/Publish
+
+ExecStart=dotnet WebApplication1.Web.dll --urls "http://0.0.0.0:5001"
+
+Restart=always
+RestartSec=10
+
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=ASPNETCORE_URLS=http://0.0.0.0:5001
+Environment="INSTANCE_NAME=Servidor B"
+
+
+[Install]
+WantedBy=multi-user.target

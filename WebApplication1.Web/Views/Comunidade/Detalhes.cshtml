@@ -1,0 +1,28 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Domain.Comunidade.Comunidade
+
+@{
+    ViewData["Title"] = Model.Nome;
+}
+
+<section class="community-card">
+    <span class="community-avatar">@(Model.Nome.FirstOrDefault())</span>
+    
+    <p class="eyebrow mt-3">@Localizer["COMUNIDADE"]</p><h1>c/@Model.Nome</h1>
+    
+    <p class="community-description">@(Model.Descricao ?? Localizer["CommunityDetailsMissingDescription"].Value)</p>
+    
+    <p class="community-intro">@Localizer["CommunityCreatedAtLabel"] @Model.CriadoEm.ToString("d")</p>
+    
+    @if (ViewData["PodeGerenciar"] is true)
+    {
+        <div class="community-form-actions">
+            <a class="community-danger-link" asp-action="Excluir" asp-route-id="@Model.Id">
+                @Localizer["CommunityDeleteAction"]
+            </a>
+            <a class="community-primary" asp-action="Criar" asp-route-id="@Model.Id">
+                @Localizer["CommunityEditAction"]
+            </a>
+        </div>
+    }
+</section>

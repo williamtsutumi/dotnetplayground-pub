@@ -1,0 +1,16 @@
+.post-editor-toggle { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.post-editor-toggle input { width: 18px; height: 18px; accent-color: var(--accent); }
+.post-editor-toggle label { cursor: pointer; }
+#post-editor-field .CodeMirror { background: #101615; color: var(--text); border-color: #45504a; border-radius: 0 0 10px 10px; }
+#post-editor-field .CodeMirror-cursor { border-left-color: var(--text); }
+#post-editor-field .CodeMirror-selected { background: #3a4c48; }
+#post-editor-field .editor-toolbar { background: var(--panel); border-color: #45504a; border-radius: 10px 10px 0 0; }
+#post-editor-field .editor-toolbar button { color: var(--text); }
+#post-editor-field .editor-toolbar button:hover, #post-editor-field .editor-toolbar button.active { background: var(--hover); border-color: var(--muted); }
+#post-editor-field .editor-toolbar button:focus-visible { outline: 2px solid var(--accent); }
+#post-editor-field .editor-toolbar i.separator { border-color: var(--line); }
+#post-editor-field .CodeMirror .cm-header, #post-editor-field .CodeMirror .cm-link { color: var(--accent); }
+#post-editor-field .CodeMirror .cm-url, #post-editor-field .CodeMirror .cm-comment { color: #b3cbe8; }
+#post-editor-field .CodeMirror .cm-quote { color: var(--muted); }
+#post-editor-field .editor-preview { background: var(--bg); color: var(--text); padding: 20px; }
+#post-editor-field .editor-preview.post-markdown { margin: 0; }

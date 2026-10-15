@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Help" xml:space="preserve"><value>SQL Server → PostgreSQL or PostgreSQL → PostgreSQL data migration
+Usage: dotnet run --project WebApplication1.Infrastructure/DataMigration/WebApplication1.DataMigration.csproj -- [--postgres-to-postgres] --dry-run|--execute
+--dry-run copies, validates and rolls back the transaction. --execute commits the copy. Use --postgres-to-postgres to select PostgreSQL as the source.
+Configure ConnectionStrings:SqlServer, ConnectionStrings:Postgres and Migration:SourceTimeZone in the utility appsettings.json. MIGRATION_* environment variables override the file.
+For PostgreSQL → PostgreSQL configure MIGRATION_POSTGRES_SOURCE_CONNECTION; optional schemas are MIGRATION_POSTGRES_SOURCE_SCHEMA and MIGRATION_POSTGRES_SCHEMA (both public).
+Optional: MIGRATION_SQLSERVER_SCHEMA (dbo), MIGRATION_POSTGRES_SCHEMA (public), MIGRATION_COMMAND_TIMEOUT_SECONDS (120), MIGRATION_COLUMN_TIME_ZONES (JSON), MIGRATION_LANGUAGE (pt-BR/en).
+The destination must have the seven tables created and empty. See DataMigration/README.md.</value></data>
+  <data name="MissingSetting" xml:space="preserve"><value>Configure {0} in appsettings.json or through an environment variable.</value></data>
+  <data name="InvalidSetting" xml:space="preserve"><value>Invalid configuration: {0}.</value></data>
+  <data name="ProtectedDestination" xml:space="preserve"><value>Destination database {0} is protected. Migration was blocked.</value></data>
+  <data name="AmbiguousDate" xml:space="preserve"><value>Ambiguous or invalid date in the time zone configured for {0}. Review the source and time zone before retrying.</value></data>
+  <data name="DestinationNotEmpty" xml:space="preserve"><value>Destination table {0} contains data. The copy was stopped; no existing rows were deleted.</value></data>
+  <data name="CountMismatch" xml:space="preserve"><value>Row counts differ for {0}. The transaction will not be committed.</value></data>
+  <data name="StartingExecute" xml:space="preserve"><value>Starting transactional copy. Concurrent writes will be blocked during the operation.</value></data>
+  <data name="StartingDryRun" xml:space="preserve"><value>Starting a dry run with copy and rollback. Concurrent writes will be blocked during the operation.</value></data>
+  <data name="Copying" xml:space="preserve"><value>Copying {0}...</value></data>
+  <data name="Copied" xml:space="preserve"><value>{0}: {1} rows copied within the transaction.</value></data>
+  <data name="Committed" xml:space="preserve"><value>Migration committed: {0} rows. Next identity values have been adjusted.</value></data>
+  <data name="RolledBack" xml:space="preserve"><value>Dry run complete: {0} rows validated. The transaction was rolled back, including identity adjustments.</value></data>
+  <data name="Cancelled" xml:space="preserve"><value>Operation cancelled. Uncommitted transactions will be rolled back. If cancellation occurred during commit, check the destination.</value></data>
+  <data name="Failed" xml:space="preserve"><value>Migration failed (code: {0}). Check connections, permissions, types and constraints. Uncommitted transactions will be rolled back. If the connection was lost during commit, check the destination before retrying. Data and credentials were omitted.</value></data>
+</root>

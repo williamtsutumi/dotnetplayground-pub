@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.0.1</Version>
+    <InformationalVersion>$(Version)</InformationalVersion>
+	<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication1.Application\WebApplication1.Application.csproj" />
+    <ProjectReference Include="..\WebApplication1.Infrastructure\WebApplication1.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Publish\**\*" Visible="false">
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		<TargetPath>Publish\%(RecursiveDir)%(Filename)%(Extension)</TargetPath>
+	</None>
+    <Content Update="appsettings*.json">
+	    <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+	<PackageReference Include="AutoMapper" Version="14.0.0" />
+	<PackageReference Include="Humanizer.Core" Version="3.0.10" />
+	<PackageReference Include="Humanizer.Core.pt" Version="3.0.10" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.29">
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  <PrivateAssets>all</PrivateAssets>
+	</PackageReference>
+	<PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+	<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,100 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Models.FeedPostModel
+
+@{
+    var cardEstatico = ViewData["PostCardStatic"] as bool? == true;
+    var reduzirTamanhoConteudo = ViewData["PostContentReduced"] as bool? == true;
+}
+
+<article class="hub-post@(cardEstatico ? "" : " post-card-link")">
+    <div class="hub-post-meta">
+        @if (Model.ComunidadeId.HasValue)
+        {
+            <a asp-controller="Comunidade" asp-action="View" asp-route-id="@Model.ComunidadeId"><strong>c/@Model.Comunidade</strong></a>
+        }
+        else
+        {
+            <strong>@Localizer["PersonalPost"]</strong>
+        }
+        <span>@Localizer["By"]
+            @if (Model.AutorId > 0) { <a asp-controller="Perfil" asp-action="Index" asp-route-id="@Model.AutorId">u/@Model.Autor</a> }
+            else { <span>@Localizer["DeletedUser"]</span> }
+        </span>
+        <partial name="_CriadoEm" model="Model.CriadoEm" />
+        <div class="dropdown post-menu">
+            <button type="button" class="post-menu-toggle" id="post-menu-@Model.Id" data-bs-toggle="dropdown" aria-expanded="false" aria-label="@Localizer["PostOptions"]" title="@Localizer["PostOptions"]">
+                <i class="fa-solid fa-ellipsis-vertical" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="post-menu-@Model.Id">
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <form asp-controller="Post" asp-action="Bookmark" method="post">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <input type="hidden" name="returnUrl" value="@(Context.Request.Path + Context.Request.QueryString)" />
+                        <button type="submit" class="dropdown-item">
+                            <i class="@(Model.Salvo ? "fa-solid" : "fa-regular") fa-bookmark" aria-hidden="true"></i>
+                            @(Model.Salvo ? Localizer["PostBookmarkRemoveAction"] : Localizer["PostBookmarkAddAction"])
+                        </button>
+                    </form>
+                }
+                else
+                {
+                    <a class="dropdown-item" asp-controller="Usuario" asp-action="Login">@Localizer["SignInToSave"]</a>
+                }
+            </div>
+        </div>
+    </div>
+    @if (cardEstatico)
+    {
+        <div class="d-flex justify-content-between">
+            <h2>@Model.Titulo</h2>
+            @if (Model.CurrentUserIsAutor)
+            {
+                <div class="d-flex me-5">
+                    <a class="pill-button rounded-25 justify-content-center mx-2" style="height: 42px; width: 42px;" asp-controller="Post" asp-action="Criar" asp-route-id="@Model.Id" title="@Localizer["EditRecordAction"]"><i class="fa fa-pencil" style="font-size: 17px"></i></a>
+                    <form asp-controller="Post" asp-action="Delete" asp-route-id="@Model.Id" method="post" style="height: 42px; width: 42px;"
+                          data-confirm-delete data-confirm-message="@Localizer["DeleteConfirmation"]" data-confirm-yes="@Localizer["ConfirmYes"]" data-confirm-no="@Localizer["ConfirmNo"]">
+                        <button type="submit" class="pill-button rounded-25 justify-content-center h-100" title="@Localizer["DeleteRecordAction"]">
+                            <i class="fa-solid fa-trash-can" style="font-size: 17px; color: lightcoral"></i>
+                        </button>
+                    </form>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <h2><a class="post-card-destination" asp-controller="Post" asp-action="View" asp-route-id="@Model.Id">@Model.Titulo</a></h2>
+    }
+    @if (Model.ConteudoMarkdown)
+    {
+        @if (Model.Conteudo.Length > 600 && reduzirTamanhoConteudo)
+        {
+            <div class="post-markdown" style="cursor: pointer" data-post-markdown>@(Model.Conteudo.Substring(0, 600) + " ...")</div>
+            <div class="hub-post-meta">
+                <a class="onhover-white" asp-controller="Post" asp-action="View" asp-route-id="@Model.Id">
+                    @Localizer["ShowMoreContentAction"]
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="post-markdown" data-post-markdown>@Model.Conteudo</div>
+        }
+    }
+    else
+    {
+        @if (Model.Conteudo.Length > 600 && reduzirTamanhoConteudo)
+        {
+            <p>@(Model.Conteudo.Substring(0, 600) + " ...")</p>
+            <a class="onhover-white">
+                @Localizer["ShowMoreContentAction"]
+            </a>
+        }
+        else
+        {
+            <p>@Model.Conteudo</p>
+        }
+    }
+    <partial name="_PostVotes" model="Model" />
+</article>

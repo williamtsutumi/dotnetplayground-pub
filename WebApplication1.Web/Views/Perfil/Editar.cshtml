@@ -1,0 +1,37 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+
+@model WebApplication1.Web.Models.Perfil.EditarPerfilModel
+
+@{
+    ViewData["Title"] = Localizer["ProfileEditTitle"].Value;
+}
+
+<main class="profile-page profile-edit-page" id="feed" tabindex="-1">
+    <a class="profile-back" asp-controller="Perfil" asp-action="Index" asp-route-id="@Model.Id">@Localizer["ProfileBack"]</a>
+    <section class="profile-card" aria-labelledby="profile-title">
+        <div class="profile-cover" aria-hidden="true"></div>
+        <div class="profile-content">
+            <div class="profile-initial" aria-hidden="true">@Model.Nome.FirstOrDefault().ToString().ToUpperInvariant()</div>
+            <p class="eyebrow">@Localizer["ProfileAccountEyebrow"]</p>
+            <h1 id="profile-title">@Localizer["ProfileEditTitle"]</h1>
+            <p class="profile-edit-username">@Model.Nome</p>
+            <p class="profile-description">@Localizer["ProfileEditIntro"]</p>
+
+            <form class="profile-edit-form" asp-controller="Perfil" asp-action="Editar" asp-route-id="@Model.Id" method="post">
+                <div asp-validation-summary="ModelOnly" class="profile-edit-validation" role="alert"></div>
+                <div class="profile-edit-field">
+                    <label asp-for="Descricao">@Localizer["CommunityDescriptionLabel"]</label>
+                    <textarea asp-for="Descricao" rows="7" maxlength="1000"
+                              placeholder="@Localizer["ProfileDescriptionPlaceholder"]"
+                              aria-describedby="profile-description-help profile-description-validation"></textarea>
+                    <p id="profile-description-help" class="profile-edit-help">@Localizer["ProfileDescriptionHelp"]</p>
+                    <span asp-validation-for="Descricao" id="profile-description-validation" class="profile-edit-validation"></span>
+                </div>
+                <div class="profile-edit-actions">
+                    <a class="profile-edit-cancel" asp-controller="Perfil" asp-action="Index" asp-route-id="@Model.Id">@Localizer["FormCancelAction"]</a>
+                    <button class="profile-edit-save" type="submit">@Localizer["FormSaveChangesAction"]</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>

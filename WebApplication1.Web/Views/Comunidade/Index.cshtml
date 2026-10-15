@@ -1,0 +1,47 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model List<WebApplication1.Domain.Comunidade.Comunidade>
+@{
+    ViewData["Title"] = Localizer["CommunityIndexTitle"].Value; ViewData["WideContent"] = true;
+}
+
+<p class="eyebrow">@Localizer["CommunityIndexEyebrow"]</p>
+
+<div class="community-title-row">
+    <h1>
+        @Localizer["CommunityIndexTitle"]<span class="brand-dot">.</span>
+    </h1>
+    <a class="community-primary" asp-action="Criar">
+        @Localizer["CommunityIndexCreateAction"]
+    </a>
+</div>
+
+<p class="community-intro">@Localizer["CommunityIndexIntro"]</p>
+
+<form method="get" asp-action="Index" class="community-list-search">
+    <label class="visually-hidden" for="busca">
+        @Localizer["CommunityIndexSearchLabel"]
+    </label>
+    
+    <input id="busca" name="busca" value="@ViewData["Busca"]" placeholder="@Localizer["CommunityIndexSearchPlaceholder"]" maxlength="50" />
+    
+    <button class="community-primary" type="submit">
+        @Localizer["CommunityIndexSearchAction"]
+    </button>
+</form>
+
+<div asp-validation-summary="ModelOnly" class="community-errors" role="alert"></div>
+
+@if (Model.Count == 0 && ViewData.ModelState.IsValid)
+{
+    <div class="community-card"><h2>@Localizer["CommunityIndexNoResultsHeading"]</h2><p>@Localizer["CommunityIndexNoResultsHint"]</p></div>
+}
+<div class="community-grid">
+    @foreach (var comunidade in Model)
+    {
+        <a class="community-card community-list-item" asp-action="Detalhes" asp-route-id="@comunidade.Id"><span class="community-avatar">@(comunidade.Nome.FirstOrDefault())</span><h2>c/@comunidade.Nome</h2><p>@(comunidade.Descricao ?? Localizer["CommunityIndexFallbackDescription"].Value)</p><span class="brand-dot">@Localizer["CommunityIndexCardAction"]</span></a>
+    }
+</div>
+@if (Model.Count == 100)
+{
+    <p class="community-intro">@Localizer["CommunityIndexResultsLimitHelp"]</p>
+}

@@ -1,0 +1,21 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Models.Comunidade.CriarPostModel
+@{ ViewData["Title"] = Localizer["CommunityPostCreateAction"].Value; }
+<section class="community-card">
+    <p class="eyebrow">@Localizer["CommunityPostFormEyebrow"]</p><h1>@Localizer["CommunityPostCreateAction"]</h1>
+    <p class="community-intro">@Localizer["CommunityPostFormDestinationLabel"] <a asp-action="View" asp-route-id="@Model.ComunidadeId">c/@(Model.ComunidadeNome ?? Model.ComunidadeId.ToString())</a></p>
+    <form id="post-form" method="post" asp-action="Postar" asp-route-id="@Model.ComunidadeId" class="community-form">
+        <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+        <div class="community-field"><label asp-for="Titulo">@Localizer["PostTitleLabel"]</label><input asp-for="Titulo" maxlength="300" required /><span asp-validation-for="Titulo"></span></div>
+        <partial name="_PostEditor" model="Model" />
+        <div class="community-form-actions"><a asp-action="View" asp-route-id="@Model.ComunidadeId">@Localizer["FormCancelAction"]</a><button type="submit" class="community-primary">@Localizer["PostPublishAction"]</button></div>
+    </form>
+</section>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.jsdelivr.net/npm/easymde@2.21.0/dist/easymde.min.js"></script>
+    <partial name="_MarkdownScripts" />
+    <script src="~/js/post-editor.js" asp-append-version="true"></script>
+    <script src="~/js/post-form.js" asp-append-version="true"></script>
+}

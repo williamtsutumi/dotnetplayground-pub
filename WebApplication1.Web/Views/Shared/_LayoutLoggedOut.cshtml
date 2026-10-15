@@ -1,0 +1,51 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@{
+    var mainClasses = ViewData["LoggedOutMainClasses"]?.ToString() ?? "d-flex align-items-center justify-content-center";
+    var bodyClasses = ViewData["LoggedOutBodyClasses"]?.ToString() ?? "bg-light";
+}
+
+<!DOCTYPE html>
+<html lang="@System.Globalization.CultureInfo.CurrentUICulture.Name">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101415" />
+    <script src="~/js/theme.js" asp-append-version="true"></script>
+    <title>@ViewData["Title"] - .NET Playground</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/external/font-awesome/6.7.2/css/all.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/external/noty/3.1.4/noty.min.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+    <link rel="stylesheet" href="~/css/blocked-control.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/notifications.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/language-dropdown.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/study-disclaimer.css" asp-append-version="true" />
+</head>
+<body class="@bodyClasses d-flex flex-column min-vh-100">
+    <header class="bg-white border-bottom shadow-sm py-3">
+        <nav class="container d-flex align-items-center justify-content-between gap-3">
+            <a asp-controller="Home" asp-action="Index" class="login-brand text-decoration-none" aria-label="@Localizer["HomeNavigationAccessibleLabel"]">
+                <img class="login-brand-mark login-brand-mark-dark" src="~/images/playground-mark-dark.svg" asp-append-version="true" aria-hidden="true" alt="" />
+                <img class="login-brand-mark login-brand-mark-light" src="~/images/playground-mark-light.svg" asp-append-version="true" aria-hidden="true" alt="" />
+                <span>playground<span class="login-brand-dot">.</span></span>
+            </a>
+            <partial name="_SettingsDropdown" />
+        </nav>
+    </header>
+
+    <main class="container flex-grow-1 @mainClasses py-5">
+        @RenderBody()
+        <partial name="_StudyDisclaimer" />
+    </main>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/settings.js" asp-append-version="true"></script>
+    <script src="~/js/external/noty/3.1.4/noty.min.js" asp-append-version="true"></script>
+    <script src="~/js/notifications-config.js" asp-append-version="true"></script>
+    <partial name="_ClientTranslations" />
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,130 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@inject IConfiguration Configuration
+@{
+    var useCommunityFrame = ViewData["UseCommunityFrame"] is true;
+
+    var connectionStr = Configuration.GetConnectionString("DefaultConnection")!.ToLower() ?? "";
+    var playgroundLogoLabel = "playground";
+#if (DEBUG)
+{
+    if (string.IsNullOrEmpty(connectionStr))
+    {
+        playgroundLogoLabel = "db not found";
+    }
+    else if (connectionStr.Contains("prod") || connectionStr.Contains("producao") || connectionStr.Contains("production"))
+    {
+        playgroundLogoLabel = "playground (production!)";
+    }
+}
+#endif
+}
+<!DOCTYPE html>
+<html lang="@System.Globalization.CultureInfo.CurrentUICulture.Name">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101415" />
+    <script src="~/js/theme.js" asp-append-version="true"></script>
+    <title>@ViewData["Title"] — .NET Playground</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/external/font-awesome/6.7.2/css/all.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/perfil.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/community-hub.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/external/noty/3.1.4/noty.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/blocked-control.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/notifications.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/study-disclaimer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
+</head>
+<body>
+    <a class="skip-link" href="#feed">@Localizer["SkipContent"]</a>
+    <header class="topbar">
+        <div class="brand-area">
+            <button class="icon-button menu-toggle" aria-label="@Localizer["ToggleMenu"]" aria-expanded="false" aria-controls="sidebar">☰</button>
+            <a class="brand" asp-controller="Home" asp-action="Index" aria-label="@Localizer["HomeNavigationAccessibleLabel"]">
+                <img class="brand-mark brand-mark-dark" src="~/images/playground-mark-dark.svg" asp-append-version="true" aria-hidden="true" alt="" />
+                <img class="brand-mark brand-mark-light" src="~/images/playground-mark-light.svg" asp-append-version="true" aria-hidden="true" alt="" />
+                <p id="logo-text">@playgroundLogoLabel</p><span class="brand-dot">.</span>
+            </a>
+        </div>
+        <form class="search" role="search" id="search-form" asp-controller="Search" asp-action="Index" method="get">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input type="search" id="feed-search" name="query" value="@Context.Request.Query["query"]" placeholder="@Localizer["SearchPlayground"]" aria-label="@Localizer["SearchPlayground"]" autocomplete="off" />
+            <kbd>/</kbd>
+        </form>
+        <div class="top-actions">
+            <a class="create-button p-2" aria-label="@Localizer["CreatePost"]" asp-controller="Post" asp-action="Criar">
+                <i class="fa-solid fa-plus"></i>
+                @Localizer["CreatePostAction"]
+            </a>
+            <div class="dropdown dropdown-notificaiton">
+                <button type="button" class="icon-button navbar-dropdown-toggle" id="notifications-menu" data-bs-toggle="dropdown" aria-expanded="false" aria-label="@Localizer["Notifications"]" title="@Localizer["Notifications"]">
+                    <i class="fa-solid fa-bell fa-lg" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notifications-menu">
+                    <span class="dropdown-item navbar-dropdown-message">@Localizer["NotImplementedYet"]</span>
+                </div>
+            </div>
+            
+            <partial name="_SettingsDropdown" />
+
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <div class="dropdown">
+                    <button type="button" class="profile-button" id="profile-menu" data-bs-toggle="dropdown" aria-expanded="false" aria-label="@Localizer["UserMenu"]" title="@User.Identity.Name">
+                        <span>@(User.Identity.Name?.FirstOrDefault().ToString().ToUpperInvariant())</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-menu">
+                        <li><a class="dropdown-item" asp-controller="Perfil" asp-action="Index">@Localizer["ProfileNavigationAction"]</a></li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" asp-area="Admin" asp-controller="Usuarios" asp-action="Index">@Localizer["NavBarPerfilAdmin"]</a></li>
+                        }
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><form asp-controller="Usuario" asp-action="Logout" method="post"><button type="submit" class="dropdown-item">@Localizer["SignOut"]</button></form></li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <a class="login-button" asp-controller="Usuario" asp-action="Login">@Localizer["AccountSignInAction"]</a>
+            }
+            
+        </div>
+    </header>
+    <div class="community-shell">
+        <partial name="_CommunitySidebar" />
+        @if (useCommunityFrame)
+        {
+            <main id="feed" class="community-page @(ViewData["WideContent"] is true ? "community-page-wide" : "")" tabindex="-1">
+                <a class="community-back" asp-controller="Comunidade" asp-action="Index">@Localizer["LayoutCommunityBackAction"]</a>
+                @RenderBody()
+            </main>
+        }
+        else
+        {
+            @RenderBody()
+        }
+    </div>
+    <partial name="_StudyDisclaimer" />
+    <div class="status-toast" id="home-status" role="status" hidden></div>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <partial name="_ClientTranslations" />
+    <script src="~/js/home.js" asp-append-version="true"></script>
+    <script src="~/js/settings.js" asp-append-version="true"></script>
+    <script src="~/js/external/noty/3.1.4/noty.min.js" asp-append-version="true"></script>
+    <script src="~/js/notifications-config.js" asp-append-version="true"></script>
+    @foreach (var key in new[] { "Sucesso", "Erro" })
+    {
+        if (TempData[key] is string message)
+        {
+            <div class="community-notification" hidden data-message="@message" data-type="@(key == "Sucesso" ? "success" : "error")"></div>
+        }
+    }
+    <script src="~/js/community-notifications.js" asp-append-version="true"></script>
+    <script src="~/js/post-votes.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

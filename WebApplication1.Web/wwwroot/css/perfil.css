@@ -1,0 +1,43 @@
+.profile-page { box-sizing: border-box; width: calc(100% - 260px); max-width: 1340px; margin-left: 260px; margin-right: auto; padding: 38px 40px; min-width: 0; }
+.profile-page > .profile-card, .profile-page > .feed-column { width: 100%; max-width: 780px; margin-left: 159px; }
+.top-actions .profile-button { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0; border-radius: 50%; }
+.top-actions .dropdown-menu { background: var(--panel); border-color: var(--line); padding: 6px; min-width: 160px; box-shadow: 0 10px 30px #0005; }
+.top-actions .dropdown-item { color: var(--text); border-radius: 5px; padding: 10px 14px; }
+.top-actions .dropdown-item:hover, .top-actions .dropdown-item:focus { color: var(--accent); background: var(--hover); }
+.top-actions .dropdown-divider { border-color: var(--line); }
+.profile-back-button { margin-left: 175px; }
+.tipo-feed-profile:hover {
+    color: var(--accent);
+    background-color: var(--hover);
+}
+
+.profile-card { overflow: hidden; border: 1px solid #343b3a; background: #191f20; }
+.profile-cover { height: 110px; background: linear-gradient(120deg, #355648, #223b37 60%, #1b292b); }
+.profile-content { padding: 0 32px 32px; }
+.profile-initial { display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; margin: -40px 0 24px; position: relative; border: 5px solid #191f20; border-radius: 50%; background: #d6e9aa; color: #223329; font-size: 32px; font-weight: 700; }
+.profile-content h1 { font-size: 30px; overflow-wrap: anywhere; }
+.profile-description { color: #aab4b0; }
+.profile-description-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.profile-edit-username { color: var(--text); font-weight: 600; overflow-wrap: anywhere; margin: 8px 0; }
+.profile-edit-form { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); }
+.profile-edit-field label { display: block; color: var(--text); font-weight: 600; margin-bottom: 10px; }
+.profile-edit-field textarea { display: block; width: 100%; min-height: 180px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--text); font: inherit; line-height: 1.6; resize: vertical; }
+.profile-edit-field textarea::placeholder { color: var(--muted); opacity: 1; }
+.profile-edit-page :is(textarea, a, button):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.profile-edit-help { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+.profile-edit-validation { color: #e57575; }
+.profile-edit-validation.validation-summary-valid { display: none; }
+.profile-edit-actions { display: flex; justify-content: flex-end; align-items: center; gap: 12px; margin-top: 28px; }
+.profile-edit-cancel, .profile-edit-save { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 11px 22px; border-radius: 999px; font: inherit; font-weight: 600; text-decoration: none; text-align: center; }
+.profile-edit-cancel { color: var(--text); border: 1px solid var(--line); background: transparent; }
+.profile-edit-cancel:hover { background: var(--hover); color: var(--text); }
+.profile-edit-save { color: var(--bg); background: var(--accent); border: 1px solid var(--accent); }
+.profile-edit-save:hover { filter: brightness(1.1); }
+@media (max-width: 600px) { .profile-edit-actions { flex-direction: column-reverse; align-items: stretch; } }
+.profile-details { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin: 28px 0 0; padding-top: 28px; border-top: 1px solid #343b3a; }
+.profile-details dt { color: #aab4b0; font-size: 13px; font-weight: 400; margin-bottom: 7px; }
+.profile-details dd { color: #eef2ee; margin: 0; overflow-wrap: anywhere; }
+@media (min-width: 1600px) { .profile-page { max-width: 1476px; margin-left: 260px; padding-top: 18px; } .profile-page > .profile-card, .profile-page > .feed-column { max-width: 880px; margin-left: 174px; } }
+@media (max-width: 1200px) { .profile-page { width: calc(100% - 230px); max-width: 840px; margin-left: calc(230px + max(0px, (100% - 230px - 840px) / 2)); padding: 30px; } .profile-page > .profile-card, .profile-page > .feed-column { max-width: 780px; margin-left: 0; } }
+@media (max-width: 800px) { .profile-page { width: 100%; max-width: 700px; margin-left: auto; margin-right: auto; } }
+@media (max-width: 600px) { .profile-page { padding: 24px 16px; } .profile-content { padding: 0 20px 24px; } .profile-details { grid-template-columns: 1fr; gap: 20px; } }

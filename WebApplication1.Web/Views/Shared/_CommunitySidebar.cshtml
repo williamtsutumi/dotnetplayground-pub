@@ -1,0 +1,35 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+
+<aside class="sidebar" id="sidebar">
+    <nav aria-label="@Localizer["MainNavigation"]">
+        <a class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && Context.Request.Query["ordem"] != "maispopulares" ? "selected" : "")" asp-controller="Home" asp-action="Index">
+            <i class="fa-solid fa-house" aria-hidden="true"></i> @Localizer["MainFeed"]
+        </a>
+        <a class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && Context.Request.Query["ordem"] == "maispopulares" ? "selected" : "")" asp-controller="Home" asp-action="Index" asp-route-ordem="maispopulares">
+            <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> @Localizer["PopularPostsNavigationLabel"]
+        </a>
+        <a class="nav-item @((ViewContext.RouteData.Values["controller"]?.ToString() == "Comunidade" && ViewContext.RouteData.Values["action"]?.ToString() == "Index") ? "selected" : "")" asp-controller="Comunidade" asp-action="Index">
+            <i class="fa-solid fa-compass" aria-hidden="true"></i> @Localizer["ExploreCommunities"]
+        </a>
+    </nav>
+    @await Component.InvokeAsync("SidebarComunidades")
+    <div class="sidebar-section">
+        <div class="muted mb-2 eyebrow">
+            @Localizer["YourSpace"]
+        </div>
+        <a class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Post" && ViewContext.RouteData.Values["action"]?.ToString() == "Bookmarked" ? "selected" : "")" asp-controller="Post" asp-action="Bookmarked">
+            <span aria-hidden="true">⚑</span> @Localizer["SavedPosts"]
+        </a>
+        <a class="nav-item" asp-controller="Post" asp-action="Criar">
+            <span aria-hidden="true">＋</span> @Localizer["CreatePostTitle"]
+        </a>
+    </div>
+    <div class="sidebar-bottom">
+        <a asp-controller="About" asp-action="Index">
+            @Localizer["AboutProject"] <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <p>
+            .NET Playground © @DateTime.Now.Year
+        </p>
+    </div>
+</aside>

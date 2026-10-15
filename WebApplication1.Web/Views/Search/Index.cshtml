@@ -1,0 +1,111 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Models.SearchPageModel
+@{
+    ViewData["Title"] = string.IsNullOrWhiteSpace(Model.Query)
+        ? Localizer["SearchTitle"].Value
+        : Localizer["SearchResultsTitle", Model.Query].Value;
+}
+<partial name="_MarkdownStyles" />
+<main class="community-page community-page-wide" id="feed" tabindex="-1">
+    <nav class="search-tabs" aria-label="@Localizer["SearchFilters"]">
+        <a class="search-tab @(Model.Tipo == "posts" ? "active" : "")"
+           asp-controller="Search" asp-action="Index" asp-route-query="@Model.Query" asp-route-tipo="posts">
+            @Localizer["SearchTabPosts"] <span>@Model.TotalPosts</span>
+        </a>
+        <a class="search-tab @(Model.Tipo == "comunidades" ? "active" : "")"
+           asp-controller="Search" asp-action="Index" asp-route-query="@Model.Query" asp-route-tipo="comunidades">
+            @Localizer["SearchTabCommunities"] <span>@Model.TotalComunidades</span>
+        </a>
+        <a class="search-tab @(Model.Tipo == "usuarios" ? "active" : "")"
+           asp-controller="Search" asp-action="Index" asp-route-query="@Model.Query" asp-route-tipo="usuarios">
+            @Localizer["SearchTabUsers"] <span>@Model.TotalUsuarios</span>
+        </a>
+    </nav>
+
+    @if (Model.Indisponivel)
+    {
+        <div class="community-card" role="alert">
+            <h2>@Localizer["SearchUnavailable"]</h2>
+            <p>@Localizer["SearchUnavailableHint"]</p>
+        </div>
+    }
+    else if (string.IsNullOrWhiteSpace(Model.Query))
+    {
+        <div class="community-card">
+            <h2>@Localizer["SearchEmptyQuery"]</h2>
+            <p>@Localizer["SearchEmptyQueryHint"]</p>
+        </div>
+    }
+    else if (Model.Tipo == "posts")
+    {
+        @if (Model.Posts.Count == 0)
+        {
+            <div class="community-card">
+                <h2>@Localizer["SearchNoPosts"]</h2>
+                <p>@Localizer["SearchNoResultsHint"]</p>
+            </div>
+        }
+        @foreach (var post in Model.Posts)
+        {
+            <partial name="_FeedPost" model="post" />
+        }
+        @if (Model.Posts.Count == 100)
+        {
+            <p class="community-intro">@Localizer["SearchLimitPosts"]</p>
+        }
+    }
+    else if (Model.Tipo == "comunidades")
+    {
+        @if (Model.Comunidades.Count == 0)
+        {
+            <div class="community-card">
+                <h2>@Localizer["SearchNoCommunities"]</h2>
+                <p>@Localizer["SearchNoResultsHint"]</p>
+            </div>
+        }
+        <div class="community-grid">
+            @foreach (var comunidade in Model.Comunidades)
+            {
+                <a class="community-card community-list-item" asp-controller="Comunidade" asp-action="View" asp-route-id="@comunidade.Id">
+                    <span class="community-avatar">@(comunidade.Nome.FirstOrDefault())</span>
+                    <h2>c/@comunidade.Nome</h2>
+                    <p>@(comunidade.Descricao ?? Localizer["CommunityIndexFallbackDescription"].Value)</p>
+                    <span class="brand-dot">@Localizer["CommunityIndexCardAction"]</span>
+                </a>
+            }
+        </div>
+        @if (Model.Comunidades.Count == 100)
+        {
+            <p class="community-intro">@Localizer["SearchLimitCommunities"]</p>
+        }
+    }
+    else
+    {
+        @if (Model.Usuarios.Count == 0)
+        {
+            <div class="community-card">
+                <h2>@Localizer["SearchNoUsers"]</h2>
+                <p>@Localizer["SearchNoResultsHint"]</p>
+            </div>
+        }
+        <div class="community-grid">
+            @foreach (var usuario in Model.Usuarios)
+            {
+                <a class="community-card community-list-item" asp-controller="Perfil" asp-action="Index" asp-route-id="@usuario.Id">
+                    <span class="community-avatar">@(usuario.NomeUsuario.FirstOrDefault().ToString().ToUpperInvariant())</span>
+                    <h2>u/@usuario.NomeUsuario</h2>
+                    <p>@Localizer["SearchUserCardHint"]</p>
+                    <span class="brand-dot">@Localizer["SearchViewProfile"]</span>
+                </a>
+            }
+        </div>
+        @if (Model.Usuarios.Count == 100)
+        {
+            <p class="community-intro">@Localizer["SearchLimitUsers"]</p>
+        }
+    }
+</main>
+@section Scripts {
+    <partial name="_MarkdownScripts" />
+    <script src="~/js/post-markdown.js" asp-append-version="true"></script>
+}

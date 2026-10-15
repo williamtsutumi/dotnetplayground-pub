@@ -1,0 +1,54 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Models.FeedModel
+
+@{
+    ViewData["Title"] = Localizer["SavedPosts"];
+}
+
+<partial name="_MarkdownStyles" />
+<main class="feed-layout" id="feed" tabindex="-1">
+    <section class="feed-column" aria-labelledby="feed-title">
+        <div id="feed-header" class="d-flex justify-content-between mb-3">
+            <div class="feed-heading">
+                <div>
+                    <p class="eyebrow">@Localizer["SavedPostsEyebrow"]</p>
+                    <h1 id="feed-title">@Localizer["SavedPosts"]<span class="brand-dot">.</span></h1>
+                </div>
+            </div>
+        </div>
+        @if (Model.Indisponivel)
+        {
+            <p role="alert" class="hub-empty">@Localizer["FeedError"]</p>
+        }
+        else if (Model.Posts.Count == 0)
+        {
+            <div class="hub-empty"><h2>@Localizer["NoSavedPosts"]</h2><p>@Localizer["SavedPostsDescription"]</p></div>
+        }
+        @foreach (var post in Model.Posts)
+        {
+            <partial name="_FeedPost" model="post" />
+        }
+        <nav class="hub-pagination" aria-label="@Localizer["FeedPagination"]">
+            @if (Model.Pagina > 1)
+            {
+                <a class="hub-button" asp-action="Bookmarked" asp-route-pagina="@(Model.Pagina - 1)">@Localizer["Previous"]</a>
+            }
+            @if (Model.TemProxima)
+            {
+                <a class="hub-button" asp-action="Bookmarked" asp-route-pagina="@(Model.Pagina + 1)">@Localizer["Next"]</a>
+            }
+        </nav>
+    </section>
+    <aside class="discovery">
+        <div class="welcome-card"><span class="eyebrow">@Localizer["SavedPosts"]</span><h2>@Localizer["SavedPostsSidebarTitle"]</h2><p>@Localizer["SavedPostsDescription"]</p><a asp-controller="Home" asp-action="Index">@Localizer["MainFeed"]</a></div>
+        <div class="sidebar-bottom"><a asp-controller="About" asp-action="Index">@Localizer["AboutProject"] <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+    </aside>
+</main>
+
+@section Scripts {
+    @if (Model.Posts.Any(post => post.ConteudoMarkdown))
+    {
+        <partial name="_MarkdownScripts" />
+        <script src="~/js/post-markdown.js" asp-append-version="true"></script>
+    }
+}

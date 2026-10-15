@@ -1,0 +1,112 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Models.PostDetalhesModel
+
+@{
+    ViewData["Title"] = Model.Post.Titulo;
+}
+
+<main class="community-page community-hub" id="feed" tabindex="-1">
+    <partial name="_MarkdownStyles" />
+    @if (ViewData["VoltarHome"] is true)
+    {
+        <a class="community-back" asp-controller="Home" asp-action="Index" aria-label="@Localizer["LoginBackToHomeAccessibleLabel"]" title="@Localizer["Voltar"]"><i class="fa-solid fa-arrow-left pe-2"></i> @Localizer["Voltar"]</a>
+    }
+    else
+    {
+        <button type="button" class="community-back" onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.assign('@Url.Action("Index", "Home")'); }" aria-label="@Localizer["AboutBackButtonAccessibleLabel"]" title="@Localizer["Voltar"]"><i class="fa-solid fa-arrow-left pe-2"></i> @Localizer["Voltar"]</button>
+    }
+    @{
+        ViewData["PostCardStatic"] = true;
+    }
+
+
+    <partial name="_FeedPost" model="Model.Post" />
+
+
+    <section class="post-comment-entry" aria-label="@Localizer["PostDetailsReplyPlaceholder"]">
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <form class="post-comment-composer" asp-controller="Post" asp-action="Comentar" asp-route-id="@Model.Post.Id" method="post">
+                <label class="visually-hidden" asp-for="NovoComentario">@Localizer["PostDetailsCommentLabel"]</label>
+                <textarea asp-for="NovoComentario" rows="1" maxlength="3000" required placeholder="@Localizer["PostDetailsCommentPlaceholder"]" aria-describedby="comentario-limite comentario-erro"></textarea>
+                <span asp-validation-for="NovoComentario" id="comentario-erro" role="alert"></span>
+                <div class="post-comment-actions">
+                    <small id="comentario-limite">@Localizer["PostDetailsCommentLengthHelp"]</small>
+                    <button class="hub-button" type="submit">@Localizer["Comentar"]</button>
+                </div>
+            </form>
+        }
+        else
+        {
+
+            <form id="input-comment-need-login" comment-login="@Localizer["CommentLogin"]">
+                <button type="submit" class="post-comment-login w-100 text-start" aria-label="@Localizer["PostDetailsSignInToCommentAction"]">@Localizer["PostDetailsCommentPlaceholder"]</button>
+            </form>
+        }
+    </section>
+    <section aria-labelledby="comentarios-titulo">
+        <div class="hub-feed-heading">
+            <h2 id="comentarios-titulo">@Localizer["PostDetailsCommentCountHeading", Model.Comentarios.Count]</h2>
+        </div>
+        @if (Model.Comentarios.Count == 0)
+        {
+            <div class="hub-empty">
+                <p>@Localizer["PostDetailsEmptyComments"]</p>
+            </div>
+        }
+        else
+        {
+            <div class="comment-thread-list">
+                <svg class="comment-thread-lines" aria-hidden="true" focusable="false"></svg>
+                @foreach (var comentario in Model.Comentarios)
+                {
+                    <article class="comment-thread-item" id="comentario-@comentario.Id" data-comment-id="@comentario.Id" data-parent-id="@comentario.IdComentario" style="--comment-depth: @Math.Min(comentario.Profundidade, 6)">
+                        <div class="hub-post-meta comment-thread-author">
+                            <span class="comment-avatar" aria-hidden="true">@comentario.Autor.FirstOrDefault().ToString().ToUpperInvariant()</span>
+                            <div class="comment-author-details">
+                                @if (comentario.AutorId > 0) { <a asp-controller="Perfil" asp-action="Index" asp-route-id="@comentario.AutorId">u/@comentario.Autor</a> }
+                                else { <span>@Localizer["DeletedUser"]</span> }
+                                <partial name="_CriadoEm" model="comentario.CriadoEm" />
+                            </div>
+                        </div>
+                        @if (comentario.IdComentario.HasValue)
+                        {
+                            <a class="comment-parent-link" href="#comentario-@comentario.IdComentario">@Localizer["PostDetailsReplyContextLabel"]</a>
+                        }
+                        <p class="comment-thread-text">@comentario.Texto</p>
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <details class="comment-reply-form" open="@(Model.RespondendoId == comentario.Id ? "open" : null)">
+                                <summary>@Localizer["PostDetailsReplyAction"]</summary>
+                                <form class="post-comment-composer" asp-controller="Post" asp-action="Comentar" asp-route-id="@Model.Post.Id" method="post">
+                                    <input type="hidden" name="idComentario" value="@comentario.Id" />
+                                    <label class="visually-hidden" for="resposta-@comentario.Id">@Localizer["PostDetailsReplyToAccessibleLabel", comentario.Autor]</label>
+                                    <textarea id="resposta-@comentario.Id" name="novoComentario" rows="3" maxlength="3000" required placeholder="@Localizer["PostDetailsReplyTextPlaceholder"]" aria-describedby="resposta-erro-@comentario.Id">@(Model.RespondendoId == comentario.Id ? Model.TextoResposta : "")</textarea>
+                                    <span id="resposta-erro-@comentario.Id" class="comment-reply-error" role="alert">@(Model.RespondendoId == comentario.Id ? Model.ErroResposta : "")</span>
+                                    <div class="post-comment-actions">
+                                        <small>@Localizer["PostDetailsCommentLengthHelp"]</small>
+                                        <button class="hub-button" type="submit">@Localizer["PostDetailsReplyAction"]</button>
+                                    </div>
+                                </form>
+                            </details>
+                        }
+                        else
+                        {
+                            <a class="comment-reply-login" asp-controller="Usuario" asp-action="Login" asp-route-returnUrl="@(Url.Action("View", "Post", new { id = Model.Post.Id }) + "#comentario-" + comentario.Id)">@Localizer["PostDetailsReplyAction"]</a>
+                        }
+                    </article>
+                }
+            </div>
+        }
+    </section>
+</main>
+
+@section Scripts {
+    <script src="~/js/delete-confirmation.js" asp-append-version="true"></script>
+    @if (Model.Post.ConteudoMarkdown)
+    {
+        <partial name="_MarkdownScripts" />
+        <script src="~/js/post-markdown.js" asp-append-version="true"></script>
+    }
+    <script src="~/js/comment-threads.js" asp-append-version="true"></script>
+}

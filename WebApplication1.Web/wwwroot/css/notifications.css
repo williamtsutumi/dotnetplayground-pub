@@ -1,0 +1,12 @@
+#noty_layout__bottomRight { width: 380px; max-width: calc(100vw - 32px); right: 16px; bottom: 20px; z-index: 10000; }
+.noty_theme__mint.noty_bar { border: 1px solid #ffffff60; border-radius: 12px; padding: 0; margin: 12px 0; box-shadow: 0 8px 30px #0006; color: #fff; font-family: Arial, sans-serif; }
+.noty_theme__mint.noty_type__success { background: #166534; }
+.noty_theme__mint.noty_type__info, .noty_theme__mint.noty_type__information { background: #0759a3; }
+.noty_theme__mint.noty_type__warning { background: #fbbf24; color: #271c03; }
+.noty_theme__mint.noty_type__error { background: #b91c1c; }
+.noty_theme__mint.noty_type__alert, .noty_theme__mint.noty_type__notification { background: #334155; }
+.noty_theme__mint.noty_bar .noty_body { font-size: 15px; font-weight: 600; line-height: 1.55; color: inherit; overflow-wrap: anywhere; }
+.noty_theme__mint.noty_bar .noty_close_button { top: 8px; right: 8px; width: 26px; height: 26px; border-radius: 6px; font-size: 21px; line-height: 26px; color: inherit; background: #0002; opacity: 1; }
+.noty_theme__mint.noty_bar .noty_progressbar { display: none !important; }
+.noty_theme__mint.noty_bar.delete-confirmation { background: #fff; color: #212529; border-color: #dee2e6; }
+.noty_theme__mint.noty_bar.delete-confirmation .noty_buttons { display: flex; justify-content: flex-end; gap: 8px; padding: 0 20px 18px; background: #fff; border-radius: 0 0 12px 12px; }

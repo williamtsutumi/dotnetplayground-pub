@@ -1,0 +1,28 @@
+@using WebApplication1.Application.Records
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model CriarComunidadeRequest
+
+@{
+    ViewData["Title"] = Localizer["CommunityCreateAction"].Value;
+    var isEditing = Model.Id > 0;
+}
+
+<p class="eyebrow">@(isEditing? Localizer["HeadingEditCommunity"] : Localizer["HeadingCreateCommunity"])</p>
+<h1>@(isEditing? Localizer["CommunityEditHeading"] : Localizer["CommunityCreateHeading"])<span class="brand-dot">.</span></h1>
+<p class="community-intro">@Localizer["CommunityCreateIntro"]</p>
+<div class="community-editor">
+    <section class="community-card" aria-label="@Localizer["CommunityFormSectionLabel"]">
+        <form asp-action="Criar" method="post">
+            <partial name="_Formulario" model="Model" />
+            @if (User.Identity?.IsAuthenticated != true)
+            {
+                <p class="community-notice">@Localizer["CommunityCreateSignInPromptPrefix"] <a asp-controller="Usuario" asp-action="Login">@Localizer["SignInAccountAction"]</a> @Localizer["CommunityCreateSignInPromptSuffix"]</p>
+            }
+            <div class="community-form-actions">
+                <a type="button" onclick="history.back();">@Localizer["FormCancelAction"]</a>
+                <button class="community-primary" type="submit">@(isEditing? Localizer["FormSaveChangesAction"] : Localizer["CommunityCreateAction"])</button>
+            </div>
+        </form>
+    </section>
+    <aside class="community-tip"><span aria-hidden="true">✳</span><h2>@Localizer["CommunityCreateTipHeading"]</h2><p>@Localizer["CommunityCreateTipDescription"]</p><hr /><p>@Localizer["CommunityCreateTipBenefit"]</p></aside>
+</div>

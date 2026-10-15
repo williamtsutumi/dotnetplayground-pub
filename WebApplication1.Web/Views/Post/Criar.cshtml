@@ -1,0 +1,48 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Models.Comunidade.CriarPostModel
+
+@{
+    ViewData["Title"] = Localizer["PostCreateHeading"].Value;
+
+    var textoBotaoSalvar = (Model.PostId != null && Model.PostId > 0) ? Localizer["PostSaveChangesAction"] : Localizer["PostPublishAction"];
+}
+
+<main class="community-page" id="feed" tabindex="-1">
+    <section class="community-card">
+        <p class="eyebrow">@Localizer["PostCreateEyebrow"]</p><h1>@Localizer["PostCreateHeading"]</h1>
+        <form id="post-form" asp-controller="Post" asp-action="Criar" method="post">
+            <div asp-validation-summary="All" class="community-errors" role="alert"></div>
+
+            <input asp-for="PostId" hidden />
+
+            <div class="community-field community-picker">
+                <label asp-for="ComunidadeDestino">@Localizer["PostCreateCommunityLabel"]</label>
+                <input asp-for="ComunidadeDestino" placeholder="@Localizer["PostCreateNoCommunityHelp"]" autocomplete="off" maxlength="50" aria-expanded="false" aria-controls="community-options" aria-describedby="community-error" data-validation-url="@Url.Action("ValidarComunidade", "Post")" />
+                <div id="community-options" class="community-options" hidden>
+                    <button type="button" data-community="">@Localizer["PostCreateNoCommunityOption"]</button>
+                    @foreach (var nome in Model.ComunidadesPermitidas) { <button type="button" data-community="@nome">@nome</button> }
+                    <p class="muted" id="community-no-match" hidden>@Localizer["PostCreateCommunityNoResults"]</p>
+                </div>
+                <span asp-validation-for="ComunidadeDestino"></span>
+                <span id="community-error" class="field-validation-error" role="status"></span>
+            </div>
+            <div class="community-field"><label asp-for="Titulo">@Localizer["PostTitleLabel"]</label><input asp-for="Titulo" maxlength="300" required /><span asp-validation-for="Titulo"></span></div>
+            <partial name="_PostEditor" model="Model" />
+            <div class="community-form-actions"><a asp-controller="Home" asp-action="Index">@Localizer["FormCancelAction"]</a>
+                <button class="community-primary" type="submit">
+                    @textoBotaoSalvar
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/community-picker.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/easymde@2.21.0/dist/easymde.min.js"></script>
+    <partial name="_MarkdownScripts" />
+    <script src="~/js/post-editor.js" asp-append-version="true"></script>
+    <script src="~/js/post-form.js" asp-append-version="true"></script>
+}

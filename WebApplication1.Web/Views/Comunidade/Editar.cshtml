@@ -1,0 +1,12 @@
+@using WebApplication1.Application.Records
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model CriarComunidadeRequest
+
+@{
+    ViewData["Title"] = Localizer["CommunityEditAction"].Value;
+}
+
+<p class="eyebrow">@Localizer["CommunityEditEyebrow"]</p>
+<h1>@Localizer["CommunityEditAction"]</h1>
+<p class="community-intro">@Localizer["CommunityEditIntro"]</p>
+<section class="community-card"><form asp-action="Criar" asp-route-id="@ViewContext.RouteData.Values["id"]" method="post"><partial name="_Formulario" model="Model" /><div class="community-form-actions"><a asp-action="Detalhes" asp-route-id="@ViewContext.RouteData.Values["id"]">@Localizer["FormCancelAction"]</a><button class="community-primary" type="submit">@Localizer["FormSaveChangesAction"]</button></div></form></section>

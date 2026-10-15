@@ -1,0 +1,7 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@{
+    var keys = new[] { "PostCreateNoCommunityStatus", "PostCreateCommunityValidationPending", "PostCreateCommunityValidationInProgress", "PostCreateCommunityValidationSuccess", "PostCreateCommunityValidationFailure", "PostCreateProgressLabel", "PostPublishAction", "PreviewSavedPostsHeading", "PreviewMainFeedHeading", "PostBookmarkRemoveAction", "PostBookmarkAddAction", "PreviewBookmarkAddedNotice", "PreviewBookmarkRemovedNotice", "CommunityJoinStatusLabel", "CommunityJoinActionLabel", "PreviewCommunityJoinedNotice", "PreviewCommunityLeftNotice", "MarkdownExpandViewAction", "MarkdownCollapseViewAction", "PreviewSinglePostSortNotice", "PreviewCommentAddedNotice", "ClipboardCopyFailureNotice" };
+    var messages = keys.ToDictionary(key => key, key => Localizer[key].Value);
+    messages["PostLinkCopySuccessNotice"] = Localizer["PostLinkCopySuccessNotice"].Value;
+}
+<script>window.playgroundText = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(messages));</script>

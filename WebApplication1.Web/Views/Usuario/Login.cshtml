@@ -1,0 +1,60 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@{
+    ViewData["Title"] = Localizer["LoginPageTitle"];
+    Layout = "_LayoutLoggedOut";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+}
+
+<div class="login-shell w-100">
+
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary mb-3" aria-label="@Localizer["LoginBackToHomeAccessibleLabel"]" title="@Localizer["SharedBackAction"]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7M5 12h14" /></svg>
+            <span class="ms-1">@Localizer["SharedBackAction"]</span>
+        </a>
+<section class="card border-0 shadow-sm w-100">
+    <div class="card-body p-4 p-md-5">
+        <p class="login-eyebrow">@Localizer["AccountAccessEyebrow"]</p>
+        <h1 class="h3 mb-2">@Localizer["LoginWelcomeHeading"]</h1>
+        <p class="login-description">@Localizer["LoginDescription"]</p>
+
+        <form method="post" asp-controller="Usuario" asp-action="Login">
+            <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+            <div class="mb-3">
+                <label for="usuario" class="form-label">@Localizer["UsernameOrEmail"]</label>
+                <input id="usuario" name="usuario" type="text" class="form-control" autocomplete="username" maxlength="255" autocapitalize="none" spellcheck="false" required />
+            </div>
+
+            <div class="mb-4">
+                <label for="senha" class="form-label">@Localizer["AccountPasswordLabel"]</label>
+                <input id="senha" name="senha" type="password" class="form-control" autocomplete="current-password" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">@Localizer["AccountSignInAction"]</button>
+        </form>
+
+        <a asp-controller="Usuario" asp-action="Criar" class="btn btn-secondary w-100 mt-3">@Localizer["AccountCreateAction"]</a>
+        <div class="login-divider"><span>@Localizer["LoginGuestAccessDivider"]</span></div>
+
+        <button type="button" class="btn btn-secondary w-100" onclick="window.location.href='@(Url.Action("Index", "Home"))'">@Localizer["LoginGuestAccessAction"]</button>
+    </div>
+</section>
+<p class="login-note">@Localizer["LoginStudyProjectNote"]</p>
+</div>
+
+@section Scripts {
+    @if (ViewBag.Error is not null)
+    {
+        <script>
+            new Noty({
+                text: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.Error.ToString())),
+                type: 'error',
+                theme: 'mint',
+                layout: 'bottomRight',
+                timeout: 4000
+            }).show();
+        </script>
+    }
+}

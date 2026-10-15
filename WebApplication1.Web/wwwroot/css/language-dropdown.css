@@ -1,0 +1,11 @@
+.login-language { width: fit-content; }
+.login-language-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-width: 84px; height: 40px; padding: 0 16px; border: 1px solid #c5e99b; border-radius: 24px; background: #0c1011; color: #f1f3ed; font-size: 12px; font-weight: 700; }
+.login-language-toggle svg { color: #9ca5a0; }
+.login-language .login-language-menu { min-width: 84px; width: 100%; margin-top: 7px !important; padding: 4px; border: 1px solid #c5e99b; border-radius: 10px; background: #0c1011; box-shadow: 0 8px 20px #0003; }
+.login-language-menu .dropdown-item { padding: 10px 8px; border-radius: 6px; color: #f1f3ed; text-align: center; font-size: 12px; font-weight: 700; }
+.login-language-menu .dropdown-item.active, .login-language-menu .dropdown-item:hover, .login-language-menu .dropdown-item:focus { background: #22331b; color: #d0ef9c; }
+.login-language-toggle:focus-visible { outline: 2px solid #c5e99b; outline-offset: 3px; }
+.topbar .login-language-toggle { border-color: #fff; }
+.topbar .login-language-toggle:hover,
+.topbar .login-language-toggle:active,
+.topbar .login-language-toggle[aria-expanded="true"] { border-color: #c5e99b; }

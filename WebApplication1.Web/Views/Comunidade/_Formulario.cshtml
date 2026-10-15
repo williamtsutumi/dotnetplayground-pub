@@ -1,0 +1,30 @@
+@using WebApplication1.Application.Records
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model CriarComunidadeRequest
+
+@{
+    var isEditing = Model.Id > 0;
+}
+
+<div asp-validation-summary="ModelOnly" class="community-errors" role="alert"></div>
+<div class="community-field">
+    <label asp-for="Nome">@Localizer["CommunityNameLabel"]</label>
+    <div class="community-name-input"><span aria-hidden="true">c/</span>
+        @if (isEditing)
+        {
+            <input asp-for="Nome" maxlength="50" minlength="3" readonly inert pattern="[a-zA-Z0-9_]+" placeholder="@Localizer["CommunityNamePlaceholder"]" aria-describedby="nome-help nome-error" />
+        }
+        else
+        {
+            <input asp-for="Nome" maxlength="50" minlength="3" required pattern="[a-zA-Z0-9_]+" placeholder="@Localizer["CommunityNamePlaceholder"]" aria-describedby="nome-help nome-error" />
+        }
+    </div>
+    <small id="nome-help">@Localizer["CommunityNameFormatHelp"]</small>
+    <span asp-validation-for="Nome" id="nome-error"></span>
+</div>
+<div class="community-field">
+    <label asp-for="Descricao">@Localizer["CommunityDescriptionLabel"]</label>
+    <textarea asp-for="Descricao" maxlength="500" rows="5" placeholder="@Localizer["CommunityDescriptionPlaceholder"]" aria-describedby="descricao-help descricao-error"></textarea>
+    <small id="descricao-help">@Localizer["CommunityDescriptionOptionalHelp"]</small>
+    <span asp-validation-for="Descricao" id="descricao-error"></span>
+</div>

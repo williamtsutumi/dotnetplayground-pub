@@ -1,0 +1,46 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Models.Comunidade.SidebarComunidadesModel
+<div class="sidebar-section">
+    <div class="muted eyebrow">
+        @Localizer["YourCommunities"]
+    </div>
+    @if (!Model.Autenticado)
+    {
+        <a class="nav-item muted" asp-controller="Usuario" asp-action="Login">@Localizer["SignInToSee"]</a>
+    }
+    else if (Model.Indisponivel)
+    {
+        <p class="muted px-3" role="status">@Localizer["CommunitiesError"]</p>
+    }
+    else
+    {
+        @foreach (var grupo in new[] { true, false })
+        {
+            var comunidades = Model.Comunidades.Where(c => c.CriadaPorMim == grupo).ToList();
+            var listaId = grupo ? "communities-created" : "communities-joined";
+            <p class="eyebrow px-3 mt-3">@(grupo ? Localizer["CreatedByYou"] : Localizer["JoinedByYou"])</p>
+            @if (comunidades.Count == 0)
+            {
+                <p class="muted px-3">@(grupo ? Localizer["NoCreated"] : Localizer["NoJoined"])</p>
+            }
+            @for (var i = 0; i < comunidades.Count; i++)
+            {
+                var comunidade = comunidades[i];
+                var ocultarInicialmente = i >= 3;
+                var selecionada = ViewContext.RouteData.Values["controller"]?.ToString() == "Comunidade"
+                    && ViewContext.RouteData.Values["id"]?.ToString() == comunidade.Id.ToString();
+                <a class="nav-item sidebar-community @(selecionada ? "selected" : "") @(ocultarInicialmente ? "is-collapsed" : "")" data-community-list="@listaId" data-community-index="@i" inert="@(ocultarInicialmente ? "inert" : null)" asp-controller="Comunidade" asp-action="View" asp-route-id="@comunidade.Id">
+                    <span class="community-avatar small" aria-hidden="true">@comunidade.Nome.FirstOrDefault().ToString().ToLowerInvariant()</span>
+                    <span class="sidebar-community-name">@comunidade.Nome</span>
+                </a>
+            }
+            @if (comunidades.Count > 3)
+            {
+                <button class="sidebar-community-toggle" type="button" data-community-toggle="@listaId" data-show-less="@Localizer["CommunitySidebarShowLessAction"]" aria-expanded="false">
+                    @Localizer["ShowMoreContentAction"]
+                </button>
+            }
+        }
+    }
+    <a class="nav-item muted" asp-controller="Comunidade" asp-action="Criar"><span aria-hidden="true">＋</span> @Localizer["CreateCommunity"]</a>
+</div>

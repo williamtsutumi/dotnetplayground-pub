@@ -1,0 +1,60 @@
+:root { color-scheme: dark; --bg: #101415; --panel: #191f20; --hover: #252e30; --line: #2a3233; --text: #e9eeec; --muted: #94a3a3; --accent: #b9e28c; }
+.login-brand-mark { display: block; width: 35px; height: 35px; margin-right: 10px; flex-shrink: 0; }
+.login-brand-mark-light { display: none; }
+html[data-theme="light"] .brand-mark-dark, html[data-theme="light"] .login-brand-mark-dark { display: none; }
+html[data-theme="light"] .brand-mark-light, html[data-theme="light"] .login-brand-mark-light { display: block; }
+.top-actions .dropdown-menu { color: var(--text); background: var(--panel); border-color: var(--line); padding: 6px; min-width: 160px; box-shadow: 0 10px 30px #0005; }
+.site-settings .dropdown-menu { color: var(--text); background: var(--panel); border-color: var(--line); padding: 6px; min-width: 160px; box-shadow: 0 10px 30px #0005; }
+.top-actions .navbar-dropdown-toggle { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 42px; height: 42px; padding: 0; border-radius: 50%; color: var(--text); background: var(--panel); border: 1px solid var(--line); }
+.top-actions .navbar-dropdown-toggle:hover,
+.top-actions .navbar-dropdown-toggle[aria-expanded="true"] { background: var(--hover); color: var(--accent); }
+.top-actions .navbar-dropdown-message { color: var(--text); cursor: default; }
+.site-settings .dropdown-divider { border-color: var(--line); }
+.site-settings :focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.theme-options { margin: 0; padding: 8px; min-width: 170px; }
+.theme-options legend { float: none; width: auto; margin: 0 0 8px; font-size: 14px; font-weight: 700; }
+.theme-options label { display: flex; align-items: center; gap: 10px; padding: 9px; border-radius: 6px; cursor: pointer; }
+.theme-options label:hover { background: var(--hover); }
+.theme-options input { accent-color: var(--accent); }
+.site-settings > .icon-button { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 42px; height: 42px; padding: 0; border-radius: 50%; color: var(--text); background: var(--panel); border: 1px solid var(--line); }
+.site-settings > .icon-button:hover,
+.site-settings > button[aria-expanded="true"] { background: var(--hover); color: var(--accent); }
+
+:root[data-theme="light"] { color-scheme: light; --bg: #f5f5f1; --panel: #fdfdfb; --hover: #e8ebe3; --line: #d7d9d2; --text: #17191a; --muted: #626970; --accent: #40732c; }
+html[data-theme="light"] .search,
+html[data-theme="light"] :is(.vote-control, .pill-button, .community-back, .search-tab) { background: #e9ebe5; }
+html[data-theme="light"] .search input::placeholder { color: var(--muted); }
+html[data-theme="light"] .search kbd { border-color: var(--line); color: var(--muted); }
+html[data-theme="light"] :is(.nav-item, .post-description, .community-description, .community-list-item p, .profile-description, .profile-details dt, .profile-back) { color: var(--muted); }
+html[data-theme="light"] :is(.nav-item.selected, .join-button[aria-pressed=true], .save-button[aria-pressed=true], .vote-control button[aria-pressed=true]) { background: #e1ead9; color: var(--accent); }
+html[data-theme="light"] :is(.brand-symbol, .login-button, .profile-button, .join-button, .community-primary, .hub-primary, .search-tab.active, .skip-link) { color: #fff; }
+html[data-theme="light"] { --logo-mark-foreground: #fff; }
+html[data-theme="light"] :is(.login-button, .community-primary, .hub-primary):hover { background: #345e24; color: #fff; }
+html[data-theme="light"] :is(.welcome-card, .community-tip) { background: #eaf0e3; border-color: #d1dcc8; color: var(--muted); }
+html[data-theme="light"] .welcome-card .eyebrow { color: var(--accent); }
+html[data-theme="light"] :is(.welcome-card p, .community-info p, .community-footer, .feed-end, .feed-end small) { color: var(--muted); }
+html[data-theme="light"] .topic-tag { background: var(--hover); color: var(--accent); }
+html[data-theme="light"] :is(.hub-about, .profile-card, .community-options) { background: var(--panel); border-color: var(--line); }
+html[data-theme="light"] :is(.profile-details, .profile-initial) { border-color: var(--line); }
+html[data-theme="light"] .profile-details dd { color: var(--text); }
+html[data-theme="light"] :is(.community-field input, .community-field textarea, .community-list-search input, .community-name-input) { background: var(--panel); border-color: var(--line); }
+html[data-theme="light"] :is(.vote-control button, .pill-button, .community-back, .search-tab, .community-options button):hover { background: var(--hover); color: var(--text); }
+html[data-theme="light"] .topbar .login-language-toggle { background: var(--bg); border-color: var(--line); color: var(--text); }
+html[data-theme="light"] .topbar .login-language-toggle svg { color: var(--muted); }
+html[data-theme="light"] .topbar .login-language-menu { background: var(--panel); border-color: var(--line); }
+html[data-theme="light"] .topbar .login-language-menu .dropdown-item { color: var(--text); }
+html[data-theme="light"] .topbar .login-language-menu .dropdown-item:is(.active, :hover, :focus) { background: var(--hover); color: var(--accent); }
+html[data-theme="light"] :is(.hub-post, #post-editor-field) .post-markdown pre { background: #e9ebe5; }
+html[data-theme="light"] :is(.hub-post, #post-editor-field) .post-markdown code { color: var(--accent); }
+html[data-theme="light"] :is(.field-validation-error, .comment-reply-error, .community-danger-link) { color: #a32424; }
+html[data-theme="light"] :is(.community-notice, .community-errors.validation-summary-errors) { background: #fff0ec; border-color: #e2aaa0; color: #84291e; }
+html[data-theme="light"] .community-success { background: #e1ead9; color: #315c24; }
+
+@media (max-width: 420px) {
+    .topbar .brand { font-size: 0; }
+    .topbar .brand-symbol { margin-right: 5px; font-size: 27px; }
+    .topbar .login-language-toggle { min-width: 64px; padding: 0 8px; }
+    .top-actions { gap: 2px; }
+}
+.top-actions .navbar-dropdown-toggle > .fa-solid { display: block; line-height: 1; }
+.top-actions .profile-button > span { font-size: 18px; line-height: 1; }

@@ -1,0 +1,36 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@{
+    var portugues = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "pt";
+    string LanguageUrl(string culture)
+    {
+        var query = Context.Request.Query.ToDictionary(p => p.Key, p => (string?)p.Value.ToString());
+        query["culture"] = culture;
+        if (ViewData["ReturnUrl"] is string returnUrl) query["returnUrl"] = returnUrl;
+        var path = Context.Request.PathBase + Context.Request.Path;
+        if (string.Equals(ViewContext.RouteData.Values["controller"]?.ToString(), "Post", StringComparison.OrdinalIgnoreCase)
+            && string.Equals(ViewContext.RouteData.Values["action"]?.ToString(), "Comentar", StringComparison.OrdinalIgnoreCase))
+            path = Url.Action("View", "Post", new { id = ViewContext.RouteData.Values["id"] })!;
+        return Microsoft.AspNetCore.WebUtilities.QueryHelpers.AddQueryString(path, query);
+    }
+}
+@if (ViewData["LanguageAsRadio"] is true)
+{
+    <fieldset class="theme-options">
+        <legend>@Localizer["SiteLanguage"]</legend>
+        <label><input type="radio" name="site-language" value="pt-BR" data-language-url="@LanguageUrl("pt-BR")" checked="@portugues" /> <span lang="pt-BR">@Localizer["LanguagePortuguese"]</span></label>
+        <label><input type="radio" name="site-language" value="en" data-language-url="@LanguageUrl("en")" checked="@(!portugues)" /> <span lang="en">@Localizer["LanguageEnglish"]</span></label>
+    </fieldset>
+}
+else
+{
+<div class="dropdown login-language">
+    <button class="login-language-toggle" type="button" id="login-language-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="@Localizer["SelectLanguage"]">
+        @(portugues ? "PT-BR" : "EN")
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end login-language-menu" aria-labelledby="login-language-toggle">
+        <li><a class="dropdown-item @(portugues ? "active" : "")" href="@LanguageUrl("pt-BR")" lang="pt-BR" aria-current="@(portugues ? "true" : null)">PT-BR</a></li>
+        <li><a class="dropdown-item @(!portugues ? "active" : "")" href="@LanguageUrl("en")" lang="en" aria-current="@(!portugues ? "true" : null)">EN</a></li>
+    </ul>
+</div>
+}

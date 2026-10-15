@@ -1,0 +1,16 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+
+<aside class="study-disclaimer" id="study-disclaimer" aria-labelledby="study-disclaimer-title" hidden>
+    <div class="study-disclaimer-copy">
+        <strong id="study-disclaimer-title">@Localizer["StudyProject"]</strong>
+        <p>@Localizer["Disclaimer"]</p>
+    </div>
+    <div class="study-disclaimer-actions">
+        <button type="button" class="study-disclaimer-button" id="study-disclaimer-accept">@Localizer["StudyDisclaimerDismissAction"]</button>
+        <label class="study-disclaimer-preference" for="study-disclaimer-remember">
+            <input type="checkbox" id="study-disclaimer-remember" />
+            <span>@Localizer["DoNotShowAgain"]</span>
+        </label>
+    </div>
+</aside>
+<script src="~/js/study-disclaimer.js" asp-append-version="true"></script>

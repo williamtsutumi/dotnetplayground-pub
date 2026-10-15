@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Logo do projeto</title>
+  <rect width="64" height="64" rx="14" fill="#0d6efd"/>
+  <path fill="#fff" d="M18 17h10l4 18 4-18h10L38 47H26L18 17Z"/>
+</svg>

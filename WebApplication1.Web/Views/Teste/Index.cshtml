@@ -1,0 +1,107 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+
+@{
+    ViewData["Title"] = Localizer["MainFeed"];
+}
+
+
+<main class="feed-layout" id="feed" tabindex="-1">
+    <div ng-app="playgroundApp">
+        <div ng-controller="TesteAngularPostsController" class="mb-5">
+            <h2>This is a AngularJS Module and Controller example.</h2>
+            <input ng-model="nome">
+
+            <p>Olá, {{ nome }}</p>
+
+            <button ng-click="buscarPosts()" class="create-button" style="height: 100px; background-color: grey; border-radius: 10px;">
+                Buscar posts
+            </button>
+
+            <div ng-if="carregando">
+                Carregando com ng-if...
+            </div>
+
+            <div ng-show="carregando">
+                Carregando com ng-show...
+            </div>
+
+            <div ng-repeat="post in posts" class="row m-0">
+                {{ post.titulo }}
+            </div>
+        </div>
+
+        <div ng-controller="TesteAngularPostsControllerComService">
+            <h2>This is a AngularJS Controller with Service example.</h2>
+            <input ng-model="nome2">
+
+            <p>Olá, {{ nome2 }}</p>
+
+            <button ng-click="buscarPosts2()" class="create-button" style="height: 100px; background-color: grey; border-radius: 10px;">
+                Buscar posts
+            </button>
+
+            <div ng-if="carregando2">
+                Carregando com ng-if...
+            </div>
+
+            <div ng-show="carregando2">
+                Carregando com ng-show...
+            </div>
+
+            <div ng-repeat="post in posts2" class="row m-0">
+                {{ post.titulo }}
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <script>
+        var app = angular.module("playgroundApp", []);
+
+        app.controller("TesteAngularPostsController", function ($scope, $http) {
+
+            $scope.nome = "";
+            $scope.carregando = false;
+
+            $scope.buscarPosts = function () {
+
+                $scope.carregando = true;
+
+                $http.get("/Home/BuscarFeedInicial")
+                    .then(function (response) {
+                        $scope.posts = response.data.posts;
+                        $scope.carregando = false;
+                    });
+            };
+        });
+
+        app.service("PostService", function ($http) {
+
+            this.buscar = function () {
+                return $http.get("/Home/BuscarFeedInicial");
+            };
+
+        });
+
+        app.controller("TesteAngularPostsControllerComService", function ($scope, PostService) {
+
+            $scope.nome2 = "";
+            $scope.carregando2 = false;
+
+            $scope.buscarPosts2 = function () {
+
+                $scope.carregando2 = true;
+
+                PostService.buscar()
+                    .then(function (response) {
+                        $scope.posts2 = response.data.posts;
+                        $scope.carregando2 = false;
+                    });
+            };
+        });
+    </script>
+    
+}

@@ -1,0 +1,24 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Models.Comunidade.CriarPostModel
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde@2.21.0/dist/easymde.min.css" />
+<partial name="_MarkdownStyles" />
+<link rel="stylesheet" href="~/css/post-editor.css" asp-append-version="true" />
+<div class="post-editor-toggle">
+    <input asp-for="ConteudoMarkdown" aria-controls="post-editor-field" />
+    <label asp-for="ConteudoMarkdown">@Localizer["MarkdownEditorAccessibleLabel"]</label>
+</div>
+<div class="community-field" id="post-editor-field"
+     data-bold="@Localizer["MarkdownBold"]" data-italic="@Localizer["MarkdownItalic"]"
+     data-heading="@Localizer["MarkdownHeading"]" data-quote="@Localizer["MarkdownQuote"]"
+     data-list="@Localizer["MarkdownList"]" data-numbered-list="@Localizer["MarkdownNumberedList"]"
+     data-code="@Localizer["MarkdownCode"]" data-link="@Localizer["MarkdownLink"]"
+     data-preview="@Localizer["MarkdownPreview"]"
+     data-required="@Localizer["PostContentRequiredError"]"
+     data-too-long="@Localizer["PostContentLengthError"]"
+     data-unavailable="@Localizer["MarkdownUnavailable"]">
+    <label asp-for="Conteudo" id="post-content-label">@Localizer["PostContentLabel"]</label>
+    <textarea asp-for="Conteudo" rows="10" maxlength="40000" required aria-describedby="post-editor-error"></textarea>
+    <span asp-validation-for="Conteudo"></span>
+    <span id="post-editor-error" class="field-validation-error" role="alert"></span>
+</div>

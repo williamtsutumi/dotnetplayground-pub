@@ -1,0 +1,101 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Models.Perfil.PerfilModel
+@{
+    ViewData["Title"] = Model.ProprioPerfil ? Localizer["ProfileOwnPageTitle"].Value : Model.NomeUsuario;
+}
+<partial name="_MarkdownStyles" />
+
+<main class="profile-page" id="feed" tabindex="-1">
+    <a class="community-back profile-back-button" asp-controller="Home" asp-action="Index" aria-label="@Localizer["LoginBackToHomeAccessibleLabel"]" title="@Localizer["Voltar"]"><i class="fa-solid fa-arrow-left pe-2"></i> @Localizer["Voltar"]</a>
+    <section class="profile-card" aria-labelledby="profile-title">
+        <div class="profile-cover" aria-hidden="true"></div>
+        <div class="profile-content">
+            <div class="profile-initial" aria-hidden="true">@Model.NomeUsuario.FirstOrDefault().ToString().ToUpperInvariant()</div>
+
+            <p class="eyebrow">@(Model.ProprioPerfil ? Localizer["ProfileAccountEyebrow"].Value : Localizer["PERFIL"].Value)</p>
+
+            @if (Model.ProprioPerfil)
+            {
+                <div class="d-flex justify-content-between">
+                    <h1 id="profile-title">@Model.NomeUsuario</h1>
+                    <div class="d-flex">
+                        <a class="pill-button rounded-25 justify-content-center mx-2" style="height: 42px; width: 42px;" asp-controller="Perfil" asp-action="Editar" asp-route-id="@Model.IdUsuario" title="@Localizer["EditRecordAction"]"><i class="fa fa-pencil" style="font-size: 17px"></i></a>
+                        <form asp-controller="Usuario" asp-action="Delete" method="post" style="height: 42px; width: 42px;"
+                              data-confirm-delete data-confirm-message="@Localizer["DeleteAccountConfirmation"]" data-confirm-yes="@Localizer["ConfirmYes"]" data-confirm-no="@Localizer["ConfirmNo"]">
+                            <button type="submit" class="pill-button rounded-25 justify-content-center h-100" title="@Localizer["DeleteRecordAction"]">
+                                <i class="fa-solid fa-trash-can" style="font-size: 17px; color: lightcoral"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <h1 id="profile-title">@Model.NomeUsuario</h1>
+            }
+
+            <p class="profile-description profile-description-text">@(string.IsNullOrWhiteSpace(Model.Descricao) ? Localizer["ProfileDefaultDescription"].Value : Model.Descricao)</p>
+            
+            <dl class="profile-details">
+                <div><dt>@Localizer["ProfileUsernameLabel"]</dt><dd>@Model.NomeUsuario</dd></div>
+                @if (Model.ProprioPerfil)
+                {
+                    <div><dt>@Localizer["ProfileEmailLabel"]</dt><dd>@Model.Email</dd></div>
+                }
+                <div><dt>@Localizer["ProfileMemberSinceLabel"]</dt><dd>@Model.CriadoEm.ToString("d")</dd></div>
+            </dl>
+        </div>
+    </section>
+
+    <section class="feed-column" aria-labelledby="feed-title">
+        <div id="feed-header" class="mb-3">
+            
+            <form class="feed-toolbar justify-content-between d-flex" style="padding: 0;" asp-controller="Perfil" asp-action="Index" method="get">
+                <div>
+                    <button name="TipoFeed" value="perfilfeedpessoal" type="submit" class="tipo-feed-profile @(Model.FeedModel!.TipoFeed == "perfilfeedpessoal" ? "btn-perfil-feed-selected" : "")">@Localizer["ProfilePersonalFeed"]</button>
+                    <button name="TipoFeed" value="perfilposts" type="submit" class="tipo-feed-profile @(Model.FeedModel!.TipoFeed == "perfilposts" ? "btn-perfil-feed-selected" : "")">@Localizer["ProfilePosts"]</button>
+                </div>
+                <div class="d-flex align-content-center">
+                    <label class="align-content-center me-4" for="feed-sort">@Localizer["SortBy"]</label>
+                    <select id="feed-sort" name="ordem" aria-describedby="sort-help" style="border-bottom: var(--accent) 2px solid; outline: none;" onchange="this.form.requestSubmit()">
+                        <option value="maisantigos" selected="@(Model.FeedModel!.Ordem == "maisantigos")">@Localizer["FeedMaisAntigos"]</option>
+                        <option value="maisrecentes" selected="@(Model.FeedModel!.Ordem == "maisrecentes")">@Localizer["FeedMaisRecentes"]</option>
+                    </select>
+                    <noscript><button type="submit">@Localizer["Sort"]</button></noscript>
+                </div>
+            </form>
+
+        </div>
+        @if (Model.FeedModel!.Indisponivel)
+        {
+            <p role="alert" class="hub-empty">@Localizer["FeedError"]</p>
+        }
+        else if (Model.FeedModel!.Posts.Count == 0)
+        {
+            <div class="hub-empty"><h2>@Localizer["NoPosts"]</h2><p>@Localizer["StartConversation"]</p><a class="hub-button" asp-controller="Comunidade" asp-action="Index">@Localizer["ExploreCommunities"]</a></div>
+        }
+        @foreach (var post in Model.FeedModel!.Posts)
+        {
+            <partial name="_FeedPost" model="post" />
+        }
+        <nav class="hub-pagination" aria-label="@Localizer["FeedPagination"]">
+            @if (Model.FeedModel!.Pagina > 1)
+            {
+                <a class="hub-button" asp-action="Index" asp-route-tipofeed="@Model.FeedModel!.TipoFeed" asp-route-ordem="@Model.FeedModel!.Ordem" asp-route-pagina="@(Model.FeedModel!.Pagina - 1)">@Localizer["Previous"]</a>
+            }
+            @if (Model.FeedModel!.TemProxima)
+            {
+                <a class="hub-button" asp-action="Index" asp-route-tipofeed="@Model.FeedModel!.TipoFeed" asp-route-ordem="@Model.FeedModel!.Ordem" asp-route-pagina="@(Model.FeedModel!.Pagina + 1)">@Localizer["Next"]</a>
+            }
+        </nav>
+    </section>
+</main>
+
+@section Scripts {
+    <script src="~/js/delete-confirmation.js" asp-append-version="true"></script>
+    @if (Model.FeedModel!.Posts.Any(post => post.ConteudoMarkdown))
+    {
+        <partial name="_MarkdownScripts" />
+        <script src="~/js/post-markdown.js" asp-append-version="true"></script>
+    }
+}

@@ -1,0 +1,191 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@{
+    Layout = "_LayoutLoggedOut";
+    ViewData["Title"] = Localizer["AboutPageTitle"].Value;
+    ViewData["LoggedOutMainClasses"] = "d-flex flex-column align-items-stretch justify-content-start";
+    ViewData["LoggedOutBodyClasses"] = "info-layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/info-theme.css" asp-append-version="true" />
+}
+
+<button type="button" class="btn btn-outline-secondary mb-3" onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.assign('@Url.Content("~/")'); }" aria-label="@Localizer["AboutBackButtonAccessibleLabel"]" title="@Localizer["Voltar"]">
+    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    <span class="ms-1">@Localizer["Voltar"]</span>
+</button>
+
+<p>@Localizer["AboutRedditDisclaimer"]</p>
+
+<p>
+    <strong>@Localizer["AboutDeploymentDateLabel"]</strong>
+    @if (ViewBag.LastDeploymentAt is DateTimeOffset lastDeploymentAt)
+    {
+        <time id="last-deployment-at" datetime="@lastDeploymentAt.ToString("O")">@lastDeploymentAt.ToString("O")</time>
+    }
+    else
+    {
+        <span>@Localizer["AboutDeploymentDateUnavailable"]</span>
+    }
+    @if (!string.IsNullOrWhiteSpace(ViewBag.ApplicationVersion as string))
+    {
+        <span class="ms-2"><strong>@Localizer["AboutApplicationVersionLabel"]</strong> @ViewBag.ApplicationVersion</span>
+    }
+</p>
+
+<h2 id="infraestrutura-title">.NET Playground</h2>
+
+<p>@Localizer["AboutProjectIntroduction"] <strong>@Localizer["AboutProjectFocus"]</strong>.</p>
+
+<div class="accordion" id="aboutAccordion">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="aboutHeading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aboutContent" aria-expanded="false" aria-controls="aboutContent">
+                @Localizer["AboutInfrastructureAccordionHeading"]
+            </button>
+        </h2>
+        <div id="aboutContent" class="accordion-collapse collapse" aria-labelledby="aboutHeading" data-bs-parent="#aboutAccordion">
+            <div class="accordion-body">
+                <section aria-labelledby="infraestrutura-title">
+
+                    <p>@Localizer["AboutInfrastructureEnvironmentPrefix"] <strong>AWS EC2</strong> @Localizer["AboutInfrastructureOverviewSuffix"]</p>
+
+                    <ul>
+                        <li><strong>C# / ASP.NET Core</strong> @Localizer["AboutTechnologyWebApplication"]</li>
+                        <li><strong>Nginx</strong> @Localizer["AboutTechnologyReverseProxy"]</li>
+                        <li><strong>systemd</strong> @Localizer["AboutTechnologySystemdInstances"]</li>
+                        <li><strong>Docker</strong> @Localizer["AboutTechnologyDockerInstance"]</li>
+                        <li><strong>AWS EC2</strong> @Localizer["AboutTechnologyHostingEnvironment"]</li>
+                        <li><strong>CI/CD</strong> @Localizer["AboutTechnologyJenkinsSuffix"]</li>
+                    </ul>
+
+                    <hr />
+
+                    <h3>@Localizer["AboutArchitectureHeading"]</h3>
+
+                    <p>@Localizer["AboutArchitectureInstanceCountPrefix"] <strong>@Localizer["AboutArchitectureInstanceCountLabel"]</strong> @Localizer["AboutArchitectureInstanceCountSuffix"]</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-sm text-center align-middle">
+                            <thead>
+                                <tr>
+                                    <th scope="col">@Localizer["AboutArchitectureTableComponentHeading"]</th>
+                                    <th scope="col">@Localizer["AboutArchitectureTablePortHeading"]</th>
+                                    <th scope="col">@Localizer["AboutArchitectureTableRuntimeHeading"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nginx</td>
+                                    <td><code>80</code></td>
+                                    <td>@Localizer["AboutArchitectureNginxRuntime"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["AboutArchitectureAppServerLabel"] <b>A</b></td>
+                                    <td><code>5000</code></td>
+                                    <td>systemd</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["AboutArchitectureAppServerLabel"] <b>B</b></td>
+                                    <td><code>5001</code></td>
+                                    <td>systemd</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["AboutArchitectureAppServerLabel"] <b>C</b></td>
+                                    <td><code>5010</code></td>
+                                    <td>Docker</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>@Localizer["AboutArchitectureSystemdInstancesDescriptionPrefix"] <code>systemd</code>.</p>
+
+                    <p>@Localizer["AboutArchitectureDockerInstanceDescriptionPrefix"] <strong>@Localizer["AboutArchitectureContainerizationLabel"]</strong> @Localizer["AboutArchitectureDockerComparisonSuffix"] <code>systemd</code>.</p>
+
+                    <p>@Localizer["AboutArchitectureNginxRolePrefix"] <em>reverse proxy</em> @Localizer["AboutArchitectureNginxLoadBalancingPrefix"] <strong>@Localizer["AboutArchitectureLoadBalancingLabel"]</strong>.</p>
+
+                    <p>@Localizer["AboutArchitecturePortsPrefix"] <code>5000</code>, <code>5001</code> @Localizer["AboutArchitecturePortsListConjunction"] <code>5010</code> @Localizer["AboutArchitecturePortsSuffix"]</p>
+
+                </section>
+
+                <hr />
+
+                <div class="text-center">
+                    <h3 id="id-who-answered">@Localizer["AboutInstanceResponseHeading", (string?)ViewBag.InstanceName ?? "", (string?)ViewBag.ExecutionUrl ?? ""]</h3>
+                    <button id="reload-page-button" type="button" class="btn btn-primary">
+                        @Localizer["AboutInstanceReloadAction"]
+                    </button>
+                    <p class="mt-2 mb-0">@Localizer["AboutInstanceReloadHelp"]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="authenticationHeading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#authenticationContent" aria-expanded="false" aria-controls="authenticationContent">
+                @Localizer["AboutAuthenticationAccordionHeading"]
+            </button>
+        </h2>
+        <div id="authenticationContent" class="accordion-collapse collapse" aria-labelledby="authenticationHeading" data-bs-parent="#aboutAccordion">
+            <div class="accordion-body">
+                <p>@Localizer["AboutAuthenticationDescription"]</p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="jenkinsHeading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#jenkinsContent" aria-expanded="false" aria-controls="jenkinsContent">
+                @Localizer["AboutJenkinsAccordionHeading"]
+            </button>
+        </h2>
+        <div id="jenkinsContent" class="accordion-collapse collapse" aria-labelledby="jenkinsHeading" data-bs-parent="#aboutAccordion">
+            <div class="accordion-body">
+                <section aria-labelledby="jenkins-title">
+                    <h3 id="jenkins-title">@Localizer["AboutJenkinsAccordionHeading"]</h3>
+
+                    <p>@Localizer["AboutJenkinsIntroPrefix"] <strong>Jenkins</strong> @Localizer["AboutJenkinsIntroDeploymentPrefix"] <strong>AWS EC2</strong>@Localizer["AboutJenkinsIntroSuffix"]</p>
+
+                    <h4>@Localizer["AboutJenkinsPersonalSetupHeading"]</h4>
+                    <p>@Localizer["AboutJenkinsPersonalServerPrefix"] <strong>@Localizer["AboutJenkinsPersonalComputerLabel"]</strong>@Localizer["AboutJenkinsServiceAccountPrefix"] <strong>@Localizer["AboutJenkinsServiceAccountLabel"]</strong>@Localizer["AboutJenkinsPersonalSetupSuffix"]</p>
+
+                    <h4>@Localizer["AboutJenkinsWebhookHeading"]</h4>
+                    <p>@Localizer["O"] <strong>ngrok</strong> @Localizer["AboutJenkinsNgrokWebhookDescription"] <strong>@Localizer["AboutJenkinsRepositoryWebhookLabel"]</strong>@Localizer["AboutJenkinsWebhookDescriptionSuffix"]</p>
+
+                    <h4>@Localizer["AboutJenkinsCiHeading"]</h4>
+                    <p>@Localizer["AboutJenkinsCiTriggerPrefix"] <code>githubPush()</code> @Localizer["AboutJenkinsCiTriggerSuffix"]</p>
+                    <ol>
+                        <li><strong>Checkout:</strong> @Localizer["AboutJenkinsCheckoutBranchPrefix"] <code>master</code> @Localizer["AboutJenkinsCheckoutBranchSuffix"]</li>
+                        <li><strong>Build:</strong> @Localizer["AboutJenkinsBuildRestorePrefix"] <code>dotnet restore</code> @Localizer["AboutJenkinsBuildConfigurationPrefix"] <code>Release</code> @Localizer["AboutJenkinsBuildCommandPrefix"] <code>dotnet build --no-restore</code>.</li>
+                        <li><strong>Test:</strong> @Localizer["AboutJenkinsTestProjectPrefix"] <code>WebApplication1.Tests</code> @Localizer["AboutJenkinsBuildCommandPrefix"] <code>dotnet test --configuration Release --no-build</code>@Localizer["AboutJenkinsTestCommandSuffix"]</li>
+                    </ol>
+                    <p>@Localizer["AboutJenkinsCiFailureDescription"]</p>
+
+                    <hr />
+
+                    <h4>@Localizer["AboutJenkinsDeployHeading"]</h4>
+                    <p>@Localizer["AboutJenkinsDeployStagePrefix"] <strong>Deploy</strong>@Localizer["AboutJenkinsSshCredentialPrefix"] <code>sshagent</code> @Localizer["AboutJenkinsRepositoryUpdatePrefix"] <code>git pull origin master</code>@Localizer["AboutJenkinsScriptLaunchPrefix"] <code>start_app.sh</code> @Localizer["AboutJenkinsScriptLaunchSuffix"]</p>
+
+                    <div class="border rounded p-3 mb-3">
+                        <p class="mb-0"><strong>@Localizer["AboutJenkinsDeploymentFlowLabel"]</strong> @Localizer["AboutJenkinsDeploymentFlowDescription"]</p>
+                    </div>
+
+                    <h4>@Localizer["AboutJenkinsScriptResponsibilitiesHeading"]</h4>
+                    <ul>
+                        <li>@Localizer["AboutJenkinsScriptPublishFilesStep"]</li>
+                        <li>@Localizer["AboutJenkinsScriptStopServicesStepPrefix"] <code>systemd</code>.</li>
+                        <li>@Localizer["AboutJenkinsScriptStartInstancesPrefix"] <strong>A</strong> @Localizer["AboutArchitecturePortsListConjunction"] <strong>B</strong>@Localizer["AboutJenkinsScriptPortsPrefix"] <code>5000</code> @Localizer["AboutArchitecturePortsListConjunction"] <code>5001</code>@Localizer["AboutJenkinsScriptStartNginxSuffix"]</li>
+                        <li>@Localizer["AboutJenkinsScriptRecreateDockerInstancePrefix"] <strong>C</strong>@Localizer["AboutJenkinsScriptExposeContainerPortPrefix"] <code>5010</code> @Localizer["AboutJenkinsScriptContainerInternalPortPrefix"] <code>8080</code> @Localizer["AboutJenkinsScriptContainerSuffix"]</li>
+                        <li>@Localizer["AboutJenkinsScriptKeyVolumePrefix"] <code>/app/keys</code> @Localizer["AboutJenkinsScriptRestartPolicyPrefix"] <code>unless-stopped</code>.</li>
+                    </ul>
+                    <p>@Localizer["AboutJenkinsScriptDowntimeWarning"]</p>
+
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/about.js" asp-append-version="true"></script>
+}

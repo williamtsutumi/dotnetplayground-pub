@@ -1,0 +1,44 @@
+button.blocked-control,
+button.blocked-control:disabled {
+    position: relative;
+    isolation: isolate;
+    opacity: 1;
+    cursor: not-allowed;
+    pointer-events: auto;
+    border-radius: 9px;
+}
+.blocked-control > .blocked-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid #ff6868;
+    border-radius: 9px;
+    background: #261012d9;
+    color: #ffb5b5;
+    pointer-events: none;
+}
+.blocked-overlay > svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #ff6868;
+    stroke-width: 1.5;
+}
+.blocked-overlay > svg path { vector-effect: non-scaling-stroke; }
+.blocked-overlay > span {
+    position: relative;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #301719;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+}
+.icon-button.blocked-control, .vote-control .blocked-control { min-width: 62px; }

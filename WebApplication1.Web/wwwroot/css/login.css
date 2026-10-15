@@ -1,0 +1,113 @@
+:root { color-scheme: dark; }
+html[data-theme="light"] body.bg-light { background: var(--bg) !important; color: var(--text); }
+html[data-theme="light"] body > header.bg-white { background: var(--bg) !important; border-color: var(--line) !important; }
+html[data-theme="light"] .login-brand { color: var(--text); }
+html[data-theme="light"] :is(.login-brand:hover, .login-brand-dot, .login-eyebrow, .login-shell > .btn:hover) { color: var(--accent); }
+html[data-theme="light"] .login-brand-symbol { background: var(--accent); color: #fff; }
+html[data-theme="light"] .login-shell .card { background: var(--panel); color: var(--text); border-color: var(--line) !important; }
+html[data-theme="light"] :is(.login-description, .login-divider, .login-note, .login-shell > .btn) { color: var(--muted); }
+html[data-theme="light"] .login-shell .form-control { background: var(--bg); color: var(--text); border-color: var(--line); }
+html[data-theme="light"] .login-shell .form-control:focus { border-color: var(--accent); box-shadow: 0 0 0 3px #40732c20; }
+html[data-theme="light"] .login-shell .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+html[data-theme="light"] .login-shell .btn-primary:hover { background: #345e24; border-color: #345e24; }
+html[data-theme="light"] .login-shell .btn-secondary { color: var(--text); border-color: var(--line); }
+html[data-theme="light"] .login-shell .btn-secondary:hover { background: var(--hover); border-color: var(--muted); }
+html[data-theme="light"] .login-shell .btn:focus-visible { outline-color: var(--accent); }
+html[data-theme="light"] .login-divider::before, html[data-theme="light"] .login-divider::after { background: var(--line); }
+.login-brand { display: inline-flex; align-items: center; color: #e9eeec; font-size: 26px; font-weight: 750; letter-spacing: -1px; }
+.login-brand:hover { color: #b9e28c; }
+.login-brand-symbol { display: inline-flex; position: relative; width: 35px; height: 35px; align-items: center; justify-content: center; background: #b9e28c; color: #182319; border-radius: 12px; font-size: 32px; margin-right: 10px; line-height: 1; padding-bottom: 5px; }
+.login-brand-symbol span { font-size: 20px; position: absolute; right: 4px; top: 0; }
+.login-brand-dot { color: #b9e28c; }
+body.bg-light { background: #101415 !important; color: #e9eeec; font-family: Arial, Helvetica, sans-serif; }
+body > header.bg-white { background: #101415 !important; border-color: #2a3233 !important; box-shadow: none !important; }
+body > header .text-dark { color: #e9eeec !important; }
+body > main { padding: 48px 20px !important; }
+.login-shell { max-width: 440px; }
+.login-shell > .btn { border: 0; color: #aab6b2; padding: 10px 0; display: inline-flex; align-items: center; gap: 7px; margin-bottom: 18px !important; }
+.login-shell > .btn:hover { background: transparent; color: #b9e28c; }
+.login-shell .card { background: #191f20; color: #e9eeec; border: 1px solid #2a3233 !important; border-radius: 22px; box-shadow: 0 20px 60px #0003 !important; }
+.login-shell .card-body { padding: 38px !important; }
+.login-eyebrow { color: #b9e28c; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 18px; }
+.login-shell h1 { font-size: 28px; font-weight: 700; letter-spacing: -1px; }
+.login-description { color: #94a3a3; font-size: 14px; margin-bottom: 30px; }
+.login-shell .form-label { font-size: 13px; font-weight: 600; margin-bottom: 9px; }
+.login-shell .form-control { min-height: 49px; background: #101415; color: #e9eeec; border: 1px solid #394344; border-radius: 10px; padding: 12px 14px; }
+.login-shell .form-control:focus { border-color: #b9e28c; box-shadow: 0 0 0 3px #b9e28c20; }
+.login-shell .btn-primary, .login-shell .btn-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 24px; font-size: 14px; font-weight: 700; }
+.login-shell .btn-primary { background: #b9e28c; border-color: #b9e28c; color: #1b2d1c; }
+.login-shell .btn-primary:hover { background: #cfefa9; border-color: #cfefa9; }
+.login-shell .btn-secondary { background: transparent; border-color: #43504d; color: #e9eeec; }
+.login-shell .btn-secondary:hover { background: #252e30; border-color: #94a3a3; }
+.login-shell .btn:focus-visible { outline: 2px solid #b9e28c; outline-offset: 4px; box-shadow: none; }
+.login-divider { display: flex; align-items: center; gap: 12px; color: #94a3a3; font-size: 11px; margin: 25px 0; }
+.login-divider::before, .login-divider::after { content: ''; flex: 1; height: 1px; background: #343e3c; }
+.login-note { color: #94a3a3; font-size: 11px; text-align: center; margin: 22px 8px 0; line-height: 1.6; }
+@media (max-width: 480px) { .login-shell .card-body { padding: 28px 24px !important; } .login-shell h1 { font-size: 25px; } body > main { padding: 24px 16px !important; } }
+
+
+.study-disclaimer {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 20px 32px calc(20px + env(safe-area-inset-bottom));
+    background: #b91c1c;
+    border-top: 1px solid #f87171;
+    box-shadow: 0 -8px 30px #0003;
+}
+
+.study-disclaimer-copy {
+    max-width: 900px;
+}
+
+    .study-disclaimer-copy strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .study-disclaimer-copy p {
+        margin: 0;
+        color: #fff;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+.study-disclaimer-button {
+    flex-shrink: 0;
+    padding: 11px 24px;
+    border-radius: 24px;
+    background: #fff;
+    color: #991b1b;
+    font-weight: 700;
+}
+
+    .study-disclaimer-button:hover {
+        background: #fee2e2;
+    }
+
+    .study-disclaimer-button:focus-visible {
+        outline: 2px solid #fff;
+    }
+
+@media (max-width: 540px) {
+    .study-disclaimer {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px 20px calc(16px + env(safe-area-inset-bottom));
+    }
+
+    .study-disclaimer-copy p {
+        font-size: 12px;
+    }
+
+    .study-disclaimer-button {
+        align-self: flex-end;
+    }
+}

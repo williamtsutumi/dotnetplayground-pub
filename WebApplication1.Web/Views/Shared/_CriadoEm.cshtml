@@ -1,0 +1,7 @@
+@using Humanizer
+@using System.Globalization
+@model DateTime
+@{
+    var criadoEm = DateTime.SpecifyKind(Model, DateTimeKind.Utc);
+}
+<time datetime="@criadoEm.ToString("O")" title="@criadoEm.ToString("G") UTC">@criadoEm.Humanize(utcDate: true, culture: CultureInfo.CurrentUICulture)</time>

@@ -1,0 +1,1383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="LoginPageTitle" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="SharedBackAction" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+  <data name="RegistrationBackToLoginAccessibleLabel" xml:space="preserve">
+    <value>Voltar para o login</value>
+  </data>
+  <data name="LoginBackToHomeAccessibleLabel" xml:space="preserve">
+    <value>Voltar para a home</value>
+  </data>
+  <data name="AccountAccessEyebrow" xml:space="preserve">
+    <value>SEU ESPAÇO NO PLAYGROUND</value>
+  </data>
+  <data name="LoginWelcomeHeading" xml:space="preserve">
+    <value>Boas-vindas de volta.</value>
+  </data>
+  <data name="LoginDescription" xml:space="preserve">
+    <value>Acesse sua conta no Playground.</value>
+  </data>
+  <data name="RegistrationUsernameLabel" xml:space="preserve">
+    <value>Usuário</value>
+  </data>
+  <data name="AccountPasswordLabel" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="AccountSignInAction" xml:space="preserve">
+    <value>Entrar</value>
+  </data>
+  <data name="AccountCreateAction" xml:space="preserve">
+    <value>Criar conta</value>
+  </data>
+  <data name="LoginGuestAccessDivider" xml:space="preserve">
+    <value>ou explore sem uma conta</value>
+  </data>
+  <data name="LoginGuestAccessAction" xml:space="preserve">
+    <value>Entrar como Convidado</value>
+  </data>
+  <data name="LoginStudyProjectNote" xml:space="preserve">
+    <value>Um projeto de estudo, feito para explorar e aprender.</value>
+  </data>
+  <data name="RegisterDescription" xml:space="preserve">
+    <value>Preencha seus dados para cadastrar seu usuário.</value>
+  </data>
+  <data name="RegistrationEmailLabel" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="RegistrationBirthDateLabel" xml:space="preserve">
+    <value>Data de nascimento</value>
+  </data>
+  <data name="PasswordHelp" xml:space="preserve">
+    <value>Use pelo menos 8 caracteres.</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirmar senha</value>
+  </data>
+  <data name="HaveAccount" xml:space="preserve">
+    <value>Já tenho uma conta</value>
+  </data>
+  <data name="HomeNavigationAccessibleLabel" xml:space="preserve">
+    <value>Playground — início</value>
+  </data>
+  <data name="StudyProject" xml:space="preserve">
+    <value>Projeto de estudo</value>
+  </data>
+  <data name="Disclaimer" xml:space="preserve">
+    <value>Este é um projeto clone do Reddit, desenvolvido exclusivamente para fins de estudo de programação. Não é um produto oficial e não possui vínculo com o Reddit.</value>
+  </data>
+  <data name="StudyDisclaimerDismissAction" xml:space="preserve">
+    <value>Entendido</value>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>Usuário ou senha inválidos.</value>
+  </data>
+  <data name="InvalidRegistration" xml:space="preserve">
+    <value>Informe um nome e uma senha com pelo menos 8 caracteres.</value>
+  </data>
+  <data name="RegistrationUnavailable" xml:space="preserve">
+    <value>O cadastro de contas ainda não está disponível neste projeto de estudo.</value>
+  </data>
+  <data name="RegistrationSuccess" xml:space="preserve">
+    <value>Usuário cadastrado com sucesso.</value>
+  </data>
+  <data name="PasswordMismatch" xml:space="preserve">
+    <value>As senhas não coincidem.</value>
+  </data>
+  <data name="RegistrationSavingStatus" xml:space="preserve">
+    <value>Salvando cadastro…</value>
+  </data>
+  <data name="RegistrationAccessError" xml:space="preserve">
+    <value>Não foi possível acessar o cadastro. Atualize a página e tente novamente.</value>
+  </data>
+  <data name="RegistrationConnectionError" xml:space="preserve">
+    <value>Não foi possível salvar. Verifique a conexão com o servidor e tente novamente.</value>
+  </data>
+  <data name="RegistrationSaveError" xml:space="preserve">
+    <value>Não foi possível salvar o cadastro.</value>
+  </data>
+  <data name="RegistrationUsernameLengthError" xml:space="preserve">
+    <value>Informe um nome com até 50 caracteres.</value>
+  </data>
+  <data name="RegistrationEmailLengthError" xml:space="preserve">
+    <value>Informe um e-mail válido com até 255 caracteres.</value>
+  </data>
+  <data name="RegistrationPasswordLengthError" xml:space="preserve">
+    <value>A senha deve ter entre 8 e 128 caracteres.</value>
+  </data>
+  <data name="RegistrationBirthDateError" xml:space="preserve">
+    <value>Informe uma data de nascimento válida.</value>
+  </data>
+  <data name="MainFeed" xml:space="preserve">
+    <value>Feed principal</value>
+  </data>
+  <data name="FeedEyebrow" xml:space="preserve">
+    <value>SUAS COMUNIDADES, UM SÓ FEED</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Ordenar por</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>Mais recentes</value>
+  </data>
+  <data name="MostPopular" xml:space="preserve">
+    <value>Mais popular</value>
+  </data>
+  <data name="Sort" xml:space="preserve">
+    <value>Ordenar</value>
+  </data>
+  <data name="PopularHelp" xml:space="preserve">
+    <value>Publicações com mais upvotes primeiro. Em caso de empate, as mais recentes.</value>
+  </data>
+  <data name="DateHelp" xml:space="preserve">
+    <value>Publicações em ordem de data.</value>
+  </data>
+  <data name="FeedError" xml:space="preserve">
+    <value>Não foi possível carregar o feed. Tente atualizar a página.</value>
+  </data>
+  <data name="FeedStarts" xml:space="preserve">
+    <value>Seu feed começa aqui.</value>
+  </data>
+  <data name="SignInCommunities" xml:space="preserve">
+    <value>Entre para acompanhar suas comunidades.</value>
+  </data>
+  <data name="NoPosts" xml:space="preserve">
+    <value>Nenhuma publicação por aqui.</value>
+  </data>
+  <data name="StartConversation" xml:space="preserve">
+    <value>Explore comunidades ou publique na sua para começar a conversa.</value>
+  </data>
+  <data name="ExploreCommunities" xml:space="preserve">
+    <value>Explorar comunidades</value>
+  </data>
+  <data name="FeedPagination" xml:space="preserve">
+    <value>Paginação do feed</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>← Anterior</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Próxima →</value>
+  </data>
+  <data name="YourPlayground" xml:space="preserve">
+    <value>SEU PLAYGROUND</value>
+  </data>
+  <data name="DifferentIdeas" xml:space="preserve">
+    <value>Ideias diferentes.</value>
+  </data>
+  <data name="SharedSpace" xml:space="preserve">
+    <value>Um espaço em comum.</value>
+  </data>
+  <data name="FollowConversations" xml:space="preserve">
+    <value>Acompanhe as conversas das suas comunidades.</value>
+  </data>
+  <data name="ExploreArrow" xml:space="preserve">
+    <value>Explorar comunidades ↗</value>
+  </data>
+  <data name="SkipContent" xml:space="preserve">
+    <value>Pular para o conteúdo</value>
+  </data>
+  <data name="ToggleMenu" xml:space="preserve">
+    <value>Alternar menu</value>
+  </data>
+  <data name="SearchPlayground" xml:space="preserve">
+    <value>Buscar no Playground</value>
+  </data>
+  <data name="CreatePost" xml:space="preserve">
+    <value>Criar post</value>
+  </data>
+  <data name="CreatePostAction" xml:space="preserve">
+    <value>Criar</value>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>Notificações</value>
+  </data>
+  <data name="NoNotifications" xml:space="preserve">
+    <value>Você está em dia. Nenhuma notificação por enquanto.</value>
+  </data>
+  <data name="UserMenu" xml:space="preserve">
+    <value>Abrir menu do usuário</value>
+  </data>
+  <data name="ProfileNavigationAction" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="MainNavigation" xml:space="preserve">
+    <value>Navegação principal</value>
+  </data>
+  <data name="PopularPostsNavigationLabel" xml:space="preserve">
+    <value>Popular</value>
+  </data>
+  <data name="YourSpace" xml:space="preserve">
+    <value>SEU ESPAÇO</value>
+  </data>
+  <data name="SavedPosts" xml:space="preserve">
+    <value>Posts salvos</value>
+  </data>
+  <data name="SavedPostsEyebrow" xml:space="preserve">
+    <value>PUBLICAÇÕES QUE VOCÊ GUARDOU</value>
+  </data>
+  <data name="NoSavedPosts" xml:space="preserve">
+    <value>Você ainda não salvou nenhuma publicação.</value>
+  </data>
+  <data name="SavedPostsDescription" xml:space="preserve">
+    <value>Quando salvar uma publicação, ela aparecerá aqui.</value>
+  </data>
+  <data name="SavedPostsSidebarTitle" xml:space="preserve">
+    <value>Suas publicações favoritas, reunidas em um só lugar.</value>
+  </data>
+  <data name="CreatePostTitle" xml:space="preserve">
+    <value>Criar Post</value>
+  </data>
+  <data name="AboutProject" xml:space="preserve">
+    <value>Sobre o playground</value>
+  </data>
+  <data name="AboutDeploymentDateLabel" xml:space="preserve">
+    <value>Último deploy:</value>
+  </data>
+  <data name="AboutDeploymentDateUnavailable" xml:space="preserve">
+    <value>Data do último deploy indisponível</value>
+  </data>
+  <data name="AboutApplicationVersionLabel" xml:space="preserve">
+    <value>Versão:</value>
+  </data>
+  <data name="YourCommunities" xml:space="preserve">
+    <value>SUAS COMUNIDADES</value>
+  </data>
+  <data name="SignInToSee" xml:space="preserve">
+    <value>Entre para ver suas comunidades</value>
+  </data>
+  <data name="CommunitiesError" xml:space="preserve">
+    <value>Não foi possível carregar suas comunidades. Atualize a página ou entre novamente.</value>
+  </data>
+  <data name="CreatedByYou" xml:space="preserve">
+    <value>CRIADAS POR VOCÊ</value>
+  </data>
+  <data name="JoinedByYou" xml:space="preserve">
+    <value>VOCÊ PARTICIPA</value>
+  </data>
+  <data name="NoCreated" xml:space="preserve">
+    <value>Você ainda não criou comunidades.</value>
+  </data>
+  <data name="NoJoined" xml:space="preserve">
+    <value>Você ainda não participa de outras comunidades.</value>
+  </data>
+  <data name="CreateCommunity" xml:space="preserve">
+    <value>Criar comunidade</value>
+  </data>
+  <data name="PersonalPost" xml:space="preserve">
+    <value>Publicação pessoal</value>
+  </data>
+  <data name="By" xml:space="preserve">
+    <value>por</value>
+  </data>
+  <data name="RemoveUpvote" xml:space="preserve">
+    <value>Remover meu upvote</value>
+  </data>
+  <data name="Upvote" xml:space="preserve">
+    <value>Dar upvote</value>
+  </data>
+  <data name="RemoveDownvote" xml:space="preserve">
+    <value>Remover meu downvote</value>
+  </data>
+  <data name="Downvote" xml:space="preserve">
+    <value>Dar downvote</value>
+  </data>
+  <data name="VoteBalance" xml:space="preserve">
+    <value>Saldo de votos: upvotes menos downvotes</value>
+  </data>
+  <data name="VoteDifference" xml:space="preserve">
+    <value>Upvotes − Downvotes</value>
+  </data>
+  <data name="ViewComments" xml:space="preserve">
+    <value>Ver comentários</value>
+  </data>
+  <data name="CommentCount" xml:space="preserve">
+    <value>Ver postagem: {0} comentários</value>
+  </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Selecionar idioma</value>
+  </data>
+  <data name="VoteLogin" xml:space="preserve">
+    <value>Entre na sua conta para votar.</value>
+  </data>
+  <data name="VoteRetry" xml:space="preserve">
+    <value>Não foi possível registrar o voto. Atualize a página e tente novamente.</value>
+  </data>
+  <data name="VoteError" xml:space="preserve">
+    <value>Não foi possível registrar o voto.</value>
+  </data>
+  <data name="VoteInvalid" xml:space="preserve">
+    <value>Informe um voto válido.</value>
+  </data>
+  <data name="VoteLoginAgain" xml:space="preserve">
+    <value>Entre novamente para votar.</value>
+  </data>
+  <data name="PostNotFound" xml:space="preserve">
+    <value>Publicação não encontrada.</value>
+  </data>
+  <data name="VoteRemoved" xml:space="preserve">
+    <value>Seu voto foi removido.</value>
+  </data>
+  <data name="VoteAdded" xml:space="preserve">
+    <value>Upvote registrado.</value>
+  </data>
+  <data name="DownvoteAdded" xml:space="preserve">
+    <value>Downvote registrado.</value>
+  </data>
+  <data name="VoteServerError" xml:space="preserve">
+    <value>Não foi possível registrar o voto. Tente novamente.</value>
+  </data>
+  <data name="CommunityNameFormatHelp" xml:space="preserve">
+    <value>De 3 a 50 caracteres. Use letras sem acentos, números ou sublinhado.</value>
+  </data>
+  <data name="CommunityDescriptionOptionalHelp" xml:space="preserve">
+    <value>Opcional. Conte o propósito da comunidade em até 500 caracteres.</value>
+  </data>
+  <data name="CommunityNamePlaceholder" xml:space="preserve">
+    <value>minha_comunidade</value>
+  </data>
+  <data name="CommunityDescriptionPlaceholder" xml:space="preserve">
+    <value>Qual é o tema desta comunidade?</value>
+  </data>
+  <data name="CommunityViewCreatePostAction" xml:space="preserve">
+    <value>＋ Postar</value>
+  </data>
+  <data name="CommunityViewJoinedStatus" xml:space="preserve">
+    <value>✓ Participando</value>
+  </data>
+  <data name="CommunityJoinAction" xml:space="preserve">
+    <value>Unir-se</value>
+  </data>
+  <data name="CommunityViewPostsHeading" xml:space="preserve">
+    <value>Publicações</value>
+  </data>
+  <data name="CommunityViewSortNewest" xml:space="preserve">
+    <value>Mais recentes</value>
+  </data>
+  <data name="CommunityViewEmptyDescription" xml:space="preserve">
+    <value>Compartilhe uma ideia, uma pergunta ou uma descoberta com a comunidade.</value>
+  </data>
+  <data name="CommunityPostCreateAction" xml:space="preserve">
+    <value>Criar publicação</value>
+  </data>
+  <data name="CommunityPostsPreviousPage" xml:space="preserve">
+    <value>← Anterior</value>
+  </data>
+  <data name="CommunityPostsNextPage" xml:space="preserve">
+    <value>Próxima →</value>
+  </data>
+  <data name="HeadingAboutCommunity" xml:space="preserve">
+    <value>SOBRE A COMUNIDADE</value>
+  </data>
+  <data name="CommunityCreatedByLabel" xml:space="preserve">
+    <value>Criada por</value>
+  </data>
+  <data name="CommunityCreatedAtLabel" xml:space="preserve">
+    <value>Criada em</value>
+  </data>
+  <data name="CommunityMemberCountLabel" xml:space="preserve">
+    <value>Membros</value>
+  </data>
+  <data name="CommunityEditAction" xml:space="preserve">
+    <value>Editar comunidade</value>
+  </data>
+  <data name="CommunityDeleteAction" xml:space="preserve">
+    <value>Excluir comunidade</value>
+  </data>
+  <data name="CommunityBannerAccessibleLabel" xml:space="preserve">
+    <value>Banner da comunidade</value>
+  </data>
+  <data name="CommunityIconAccessibleLabel" xml:space="preserve">
+    <value>Ícone da comunidade</value>
+  </data>
+  <data name="CommunityPostsPaginationLabel" xml:space="preserve">
+    <value>Páginas de publicações</value>
+  </data>
+  <data name="CommunityDetailsAboutLabel" xml:space="preserve">
+    <value>Sobre a comunidade</value>
+  </data>
+  <data name="CommunityPostFormEyebrow" xml:space="preserve">
+    <value>COMPARTILHE COM A COMUNIDADE</value>
+  </data>
+  <data name="CommunityPostFormDestinationLabel" xml:space="preserve">
+    <value>Publicando em</value>
+  </data>
+  <data name="PostTitleLabel" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="PostContentLabel" xml:space="preserve">
+    <value>Conteúdo</value>
+  </data>
+  <data name="FormCancelAction" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="PostPublishAction" xml:space="preserve">
+    <value>Publicar</value>
+  </data>
+  <data name="CommunityUnavailableHeading" xml:space="preserve">
+    <value>Não foi possível carregar a comunidade</value>
+  </data>
+  <data name="CommunityUnavailableBackAction" xml:space="preserve">
+    <value>Voltar às comunidades</value>
+  </data>
+  <data name="CommunityIndexEyebrow" xml:space="preserve">
+    <value>ENCONTRE SUA TURMA</value>
+  </data>
+  <data name="CommunityIndexTitle" xml:space="preserve">
+    <value>Comunidades</value>
+  </data>
+  <data name="CommunityIndexCreateAction" xml:space="preserve">
+    <value>＋ Criar comunidade</value>
+  </data>
+  <data name="CommunityIndexIntro" xml:space="preserve">
+    <value>Explore espaços para trocar ideias e compartilhar descobertas.</value>
+  </data>
+  <data name="CommunityIndexSearchLabel" xml:space="preserve">
+    <value>Buscar comunidades</value>
+  </data>
+  <data name="CommunityIndexSearchAction" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="CommunityIndexNoResultsHeading" xml:space="preserve">
+    <value>Nenhuma comunidade encontrada</value>
+  </data>
+  <data name="CommunityIndexNoResultsHint" xml:space="preserve">
+    <value>Experimente outro nome ou crie a primeira comunidade.</value>
+  </data>
+  <data name="CommunityIndexCardAction" xml:space="preserve">
+    <value>Conhecer comunidade ↗</value>
+  </data>
+  <data name="CommunityIndexResultsLimitHelp" xml:space="preserve">
+    <value>Exibindo até 100 comunidades. Use a busca para refinar os resultados.</value>
+  </data>
+  <data name="CommunityIndexSearchPlaceholder" xml:space="preserve">
+    <value>Buscar pelo nome</value>
+  </data>
+  <data name="CommunityDeleteConfirmationHeading" xml:space="preserve">
+    <value>Excluir comunidade?</value>
+  </data>
+  <data name="CommunityDeleteConfirmationIntro" xml:space="preserve">
+    <value>Você está prestes a excluir</value>
+  </data>
+  <data name="CommunityDeleteConfirmationWarning" xml:space="preserve">
+    <value>. Esta ação não pode ser desfeita.</value>
+  </data>
+  <data name="CommunityDeleteBlockedContentHelp" xml:space="preserve">
+    <value>Comunidades com posts ou membros não podem ser excluídas.</value>
+  </data>
+  <data name="CommunityEditEyebrow" xml:space="preserve">
+    <value>SEU ESPAÇO, DO SEU JEITO</value>
+  </data>
+  <data name="CommunityEditIntro" xml:space="preserve">
+    <value>Atualize o nome e a descrição da sua comunidade.</value>
+  </data>
+  <data name="FormSaveChangesAction" xml:space="preserve">
+    <value>Salvar alterações</value>
+  </data>
+  <data name="COMUNIDADE" xml:space="preserve">
+    <value>COMUNIDADE</value>
+  </data>
+  <data name="HeadingCreateCommunity" xml:space="preserve">
+    <value>CRIE SUA COMUNIDADE</value>
+  </data>
+  <data name="CommunityCreateHeading" xml:space="preserve">
+    <value>Crie sua comunidade</value>
+  </data>
+  <data name="CommunityCreateIntro" xml:space="preserve">
+    <value>Dê um nome ao seu espaço e reúna pessoas que compartilham dos seus interesses.</value>
+  </data>
+  <data name="CommunityCreateSignInPromptPrefix" xml:space="preserve">
+    <value>Você precisa</value>
+  </data>
+  <data name="SignInAccountAction" xml:space="preserve">
+    <value>entrar na sua conta</value>
+  </data>
+  <data name="CommunityCreateSignInPromptSuffix" xml:space="preserve">
+    <value>para criar uma comunidade.</value>
+  </data>
+  <data name="CommunityCreateAction" xml:space="preserve">
+    <value>Criar comunidade</value>
+  </data>
+  <data name="CommunityCreateTipHeading" xml:space="preserve">
+    <value>Um espaço com propósito</value>
+  </data>
+  <data name="CommunityCreateTipDescription" xml:space="preserve">
+    <value>Escolha um nome fácil de encontrar e uma descrição que ajude as pessoas a se sentirem em casa.</value>
+  </data>
+  <data name="CommunityCreateTipBenefit" xml:space="preserve">
+    <value>Organize conteúdos e interesses em um espaço com identidade própria.</value>
+  </data>
+  <data name="CommunityFormSectionLabel" xml:space="preserve">
+    <value>Dados da comunidade</value>
+  </data>
+  <data name="ProfileBackToHomeAction" xml:space="preserve">
+    <value>← Voltar para o início</value>
+  </data>
+  <data name="ProfileDefaultDescription" xml:space="preserve">
+    <value>Membro do Playground.</value>
+  </data>
+  <data name="ProfileUsernameLabel" xml:space="preserve">
+    <value>Usuário</value>
+  </data>
+  <data name="ProfileEmailLabel" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="ProfileBirthDateLabel" xml:space="preserve">
+    <value>Data de nascimento</value>
+  </data>
+  <data name="ProfileMemberSinceLabel" xml:space="preserve">
+    <value>Membro desde</value>
+  </data>
+  <data name="LayoutCommunityBackAction" xml:space="preserve">
+    <value>← Comunidades</value>
+  </data>
+  <data name="LayoutToggleNavigationLabel" xml:space="preserve">
+    <value>Toggle navigation</value>
+  </data>
+  <data name="LayoutSignedInUserLabel" xml:space="preserve">
+    <value>Usuário conectado</value>
+  </data>
+  <data name="Sair" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="PostDetailsBackToFeedAction" xml:space="preserve">
+    <value>← Feed principal</value>
+  </data>
+  <data name="PostDetailsCommentLabel" xml:space="preserve">
+    <value>Seu comentário</value>
+  </data>
+  <data name="PostDetailsCommentLengthHelp" xml:space="preserve">
+    <value>Até 3000 caracteres.</value>
+  </data>
+  <data name="Comentar" xml:space="preserve">
+    <value>Comentar</value>
+  </data>
+  <data name="PostDetailsCommentPlaceholder" xml:space="preserve">
+    <value>Participe da conversa</value>
+  </data>
+  <data name="PostDetailsEmptyComments" xml:space="preserve">
+    <value>Esta publicação ainda não tem comentários.</value>
+  </data>
+  <data name="PostDetailsReplyContextLabel" xml:space="preserve">
+    <value>Em resposta ao comentário acima</value>
+  </data>
+  <data name="PostDetailsReplyAction" xml:space="preserve">
+    <value>Responder</value>
+  </data>
+  <data name="PostDetailsReplyPlaceholder" xml:space="preserve">
+    <value>Escrever um comentário</value>
+  </data>
+  <data name="PostDetailsSignInToCommentAction" xml:space="preserve">
+    <value>Entre na sua conta para comentar</value>
+  </data>
+  <data name="PostDetailsReplyTextPlaceholder" xml:space="preserve">
+    <value>Escreva sua resposta</value>
+  </data>
+  <data name="PostCreateEyebrow" xml:space="preserve">
+    <value>COMPARTILHE UMA IDEIA</value>
+  </data>
+  <data name="PostCreateHeading" xml:space="preserve">
+    <value>Criar Post</value>
+  </data>
+  <data name="PostCreateCommunityLabel" xml:space="preserve">
+    <value>Comunidade (opcional)</value>
+  </data>
+  <data name="PostCreateNoCommunityOption" xml:space="preserve">
+    <value>Sem comunidade</value>
+  </data>
+  <data name="PostCreateCommunityNoResults" xml:space="preserve">
+    <value>Nenhuma comunidade encontrada.</value>
+  </data>
+  <data name="PostCreateNoCommunityHelp" xml:space="preserve">
+    <value>Uma publicação sua, sem vínculo com uma comunidade.</value>
+  </data>
+  <data name="Voltar" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+  <data name="CommunityDetailsMissingDescription" xml:space="preserve">
+    <value>Esta comunidade ainda não tem uma descrição.</value>
+  </data>
+  <data name="CommunityIndexFallbackDescription" xml:space="preserve">
+    <value>Uma nova comunidade para compartilhar ideias.</value>
+  </data>
+  <data name="CommunityUnavailableStatus" xml:space="preserve">
+    <value>Comunidade indisponível</value>
+  </data>
+  <data name="CommunityViewEmptyPostsHeading" xml:space="preserve">
+    <value>A conversa começa com você.</value>
+  </data>
+  <data name="CommunityViewNoMorePostsHeading" xml:space="preserve">
+    <value>Não há mais publicações.</value>
+  </data>
+  <data name="ProfileOwnPageTitle" xml:space="preserve">
+    <value>Meu perfil</value>
+  </data>
+  <data name="ProfileAccountEyebrow" xml:space="preserve">
+    <value>SUA CONTA</value>
+  </data>
+  <data name="PERFIL" xml:space="preserve">
+    <value>PERFIL</value>
+  </data>
+  <data name="ProfileBirthDateNotProvided" xml:space="preserve">
+    <value>Não informada</value>
+  </data>
+  <data name="AuthenticationRequiredStatus" xml:space="preserve">
+    <value>Não Autenticado</value>
+  </data>
+  <data name="PostDetailsCommentCountHeading" xml:space="preserve">
+    <value>Comentários ({0})</value>
+  </data>
+  <data name="PostDetailsReplyToAccessibleLabel" xml:space="preserve">
+    <value>Responder a {0}</value>
+  </data>
+  <data name="AboutInstanceResponseHeading" xml:space="preserve">
+    <value>Sua página foi respondida por: {0}. Porta {1}</value>
+  </data>
+  <data name="CommunityNameRequiredError" xml:space="preserve">
+    <value>Informe o nome da comunidade.</value>
+  </data>
+  <data name="CommunityNameLengthError" xml:space="preserve">
+    <value>Use entre 3 e 50 caracteres.</value>
+  </data>
+  <data name="CommunityNameCharactersError" xml:space="preserve">
+    <value>Use apenas letras sem acentos, números e sublinhado.</value>
+  </data>
+  <data name="CommunityNameLabel" xml:space="preserve">
+    <value>Nome da comunidade</value>
+  </data>
+  <data name="CommunityDescriptionLabel" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="CommunityDescriptionLengthError" xml:space="preserve">
+    <value>A descrição deve ter no máximo 500 caracteres.</value>
+  </data>
+  <data name="CommunityNameMaximumLengthError" xml:space="preserve">
+    <value>O nome da comunidade deve ter até 50 caracteres.</value>
+  </data>
+  <data name="PostTitleRequiredError" xml:space="preserve">
+    <value>Informe o título.</value>
+  </data>
+  <data name="PostTitleLengthError" xml:space="preserve">
+    <value>O título deve ter até 300 caracteres.</value>
+  </data>
+  <data name="PostContentRequiredError" xml:space="preserve">
+    <value>Escreva o conteúdo da publicação.</value>
+  </data>
+  <data name="PostContentLengthError" xml:space="preserve">
+    <value>O conteúdo deve ter até 40.000 caracteres.</value>
+  </data>
+  <data name="PostCommunityPermissionError" xml:space="preserve">
+    <value>Escolha uma comunidade que você criou ou da qual participa.</value>
+  </data>
+  <data name="PostCreateFieldsError" xml:space="preserve">
+    <value>Revise os campos antes de publicar.</value>
+  </data>
+  <data name="PostCreateSuccessNotice" xml:space="preserve">
+    <value>Publicação criada!</value>
+  </data>
+  <data name="PostCreateFailureNotice" xml:space="preserve">
+    <value>Não foi possível publicar. Seu texto foi preservado; tente novamente.</value>
+  </data>
+  <data name="PostCommentRequiredError" xml:space="preserve">
+    <value>Escreva um comentário antes de enviar.</value>
+  </data>
+  <data name="PostCommentLengthError" xml:space="preserve">
+    <value>O comentário deve ter no máximo 3000 caracteres.</value>
+  </data>
+  <data name="PostCommentFailureNotice" xml:space="preserve">
+    <value>Não foi possível enviar o comentário. Tente novamente.</value>
+  </data>
+  <data name="PostCommentSuccessNotice" xml:space="preserve">
+    <value>Comentário publicado!</value>
+  </data>
+  <data name="CommunityCreateDemoAccountUnavailable" xml:space="preserve">
+    <value>Sua conta de demonstração ainda não está vinculada a um usuário no banco. É necessário um usuário cadastrado para criar comunidades.</value>
+  </data>
+  <data name="CommunityNameAlreadyExistsError" xml:space="preserve">
+    <value>Já existe uma comunidade com esse nome.</value>
+  </data>
+  <data name="CommunityCreateSuccessNotice" xml:space="preserve">
+    <value>Comunidade criada!</value>
+  </data>
+  <data name="CommunityUpdateSuccessNotice" xml:space="preserve">
+    <value>Comunidade atualizada.</value>
+  </data>
+  <data name="CommunityDeleteBlockedContentError" xml:space="preserve">
+    <value>Não é possível excluir uma comunidade que possui posts ou membros.</value>
+  </data>
+  <data name="CommunityDeleteSuccessNotice" xml:space="preserve">
+    <value>Comunidade excluída.</value>
+  </data>
+  <data name="CommunityDeleteBlockedRelationsError" xml:space="preserve">
+    <value>A comunidade possui conteúdo vinculado e não pode ser excluída.</value>
+  </data>
+  <data name="CommunityIndexUnavailableNotice" xml:space="preserve">
+    <value>Não foi possível acessar as comunidades. Tente novamente em instantes.</value>
+  </data>
+  <data name="CommunityJoinSuccessNotice" xml:space="preserve">
+    <value>Você participa desta comunidade!</value>
+  </data>
+  <data name="CommunityJoinAlreadyMemberNotice" xml:space="preserve">
+    <value>Você já participa desta comunidade.</value>
+  </data>
+  <data name="CommunityJoinFailureNotice" xml:space="preserve">
+    <value>Não foi possível participar. Tente novamente.</value>
+  </data>
+  <data name="CommunityPostCreateFieldsError" xml:space="preserve">
+    <value>Revise o título e o conteúdo antes de publicar.</value>
+  </data>
+  <data name="PostCreateNoCommunityStatus" xml:space="preserve">
+    <value>A publicação será feita sem comunidade.</value>
+  </data>
+  <data name="PostCreateCommunityValidationPending" xml:space="preserve">
+    <value>Aguarde a validação da comunidade.</value>
+  </data>
+  <data name="PostCreateCommunityValidationInProgress" xml:space="preserve">
+    <value>Validando comunidade…</value>
+  </data>
+  <data name="PostCreateCommunityValidationSuccess" xml:space="preserve">
+    <value>Comunidade validada. Você pode publicar nela.</value>
+  </data>
+  <data name="PostCreateCommunityValidationFailure" xml:space="preserve">
+    <value>Não foi possível validar a comunidade. Tente novamente.</value>
+  </data>
+  <data name="PostCreateProgressLabel" xml:space="preserve">
+    <value>Publicando…</value>
+  </data>
+  <data name="BlockedControlUnavailableTitle" xml:space="preserve">
+    <value>Bloqueado — recurso ainda não implementado</value>
+  </data>
+  <data name="BlockedControlLabel" xml:space="preserve">
+    <value>Bloqueado</value>
+  </data>
+  <data name="AboutJenkinsAccordionHeading" xml:space="preserve">
+    <value>Jenkins e CI/CD</value>
+  </data>
+  <data name="AboutJenkinsIntroPrefix" xml:space="preserve">
+    <value>O projeto conta com um pipeline no</value>
+  </data>
+  <data name="AboutJenkinsIntroDeploymentPrefix" xml:space="preserve">
+    <value>para automatizar a compilação, os testes e o deploy do .NET Playground na</value>
+  </data>
+  <data name="AboutJenkinsIntroSuffix" xml:space="preserve">
+    <value>. O fluxo conecta o código no GitHub à aplicação ASP.NET Core executada em Linux.</value>
+  </data>
+  <data name="AboutJenkinsPersonalSetupHeading" xml:space="preserve">
+    <value>Jenkins em computador pessoal</value>
+  </data>
+  <data name="AboutJenkinsPersonalServerPrefix" xml:space="preserve">
+    <value>O servidor Jenkins roda no</value>
+  </data>
+  <data name="AboutJenkinsPersonalComputerLabel" xml:space="preserve">
+    <value>computador pessoal do desenvolvedor</value>
+  </data>
+  <data name="AboutJenkinsServiceAccountPrefix" xml:space="preserve">
+    <value>, em um</value>
+  </data>
+  <data name="AboutJenkinsServiceAccountLabel" xml:space="preserve">
+    <value>usuário Windows dedicado</value>
+  </data>
+  <data name="AboutJenkinsPersonalSetupSuffix" xml:space="preserve">
+    <value>. O Jenkins está configurado para iniciar automaticamente ao fazer login nesse usuário, deixando o ambiente pronto para executar o pipeline.</value>
+  </data>
+  <data name="AboutJenkinsWebhookHeading" xml:space="preserve">
+    <value>Webhook do GitHub com ngrok</value>
+  </data>
+  <data name="AboutJenkinsNgrokSentencePrefix" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="AboutJenkinsNgrokWebhookDescription" xml:space="preserve">
+    <value>expõe um endpoint público que encaminha as requisições até o Jenkins no computador pessoal. Esse endereço é configurado como</value>
+  </data>
+  <data name="AboutJenkinsRepositoryWebhookLabel" xml:space="preserve">
+    <value>webhook no repositório do GitHub</value>
+  </data>
+  <data name="AboutJenkinsWebhookDescriptionSuffix" xml:space="preserve">
+    <value>: quando ocorre um push, o GitHub envia a notificação pelo túnel do ngrok e o Jenkins pode iniciar o pipeline.</value>
+  </data>
+  <data name="AboutJenkinsCiHeading" xml:space="preserve">
+    <value>Integração contínua (CI)</value>
+  </data>
+  <data name="AboutJenkinsCiTriggerPrefix" xml:space="preserve">
+    <value>O pipeline possui o gatilho</value>
+  </data>
+  <data name="AboutJenkinsCiTriggerSuffix" xml:space="preserve">
+    <value>para receber eventos de push do GitHub e organiza a validação do código em três etapas:</value>
+  </data>
+  <data name="AboutJenkinsCheckoutBranchPrefix" xml:space="preserve">
+    <value>obtém a branch</value>
+  </data>
+  <data name="AboutJenkinsCheckoutBranchSuffix" xml:space="preserve">
+    <value>do repositório no workspace do Jenkins, usando uma credencial cadastrada para acesso ao GitHub.</value>
+  </data>
+  <data name="AboutJenkinsBuildRestorePrefix" xml:space="preserve">
+    <value>restaura as dependências com</value>
+  </data>
+  <data name="AboutJenkinsBuildConfigurationPrefix" xml:space="preserve">
+    <value>e compila a solução em</value>
+  </data>
+  <data name="AboutJenkinsBuildCommandPrefix" xml:space="preserve">
+    <value>com</value>
+  </data>
+  <data name="AboutJenkinsTestProjectPrefix" xml:space="preserve">
+    <value>executa o projeto</value>
+  </data>
+  <data name="AboutJenkinsTestCommandSuffix" xml:space="preserve">
+    <value>, aproveitando a compilação anterior.</value>
+  </data>
+  <data name="AboutJenkinsCiFailureDescription" xml:space="preserve">
+    <value>Uma falha na compilação ou nos testes interrompe o pipeline antes da etapa de deploy.</value>
+  </data>
+  <data name="AboutJenkinsDeployHeading" xml:space="preserve">
+    <value>Deploy na EC2 (CD)</value>
+  </data>
+  <data name="AboutJenkinsDeployStagePrefix" xml:space="preserve">
+    <value>Na etapa</value>
+  </data>
+  <data name="AboutJenkinsSshCredentialPrefix" xml:space="preserve">
+    <value>, o Jenkins carrega a credencial SSH com</value>
+  </data>
+  <data name="AboutJenkinsRepositoryUpdatePrefix" xml:space="preserve">
+    <value>e executa comandos remotamente na EC2. O repositório no servidor é atualizado com</value>
+  </data>
+  <data name="AboutJenkinsScriptLaunchPrefix" xml:space="preserve">
+    <value>; em seguida, o script</value>
+  </data>
+  <data name="AboutJenkinsScriptLaunchSuffix" xml:space="preserve">
+    <value>recebe permissão de execução e é iniciado.</value>
+  </data>
+  <data name="AboutJenkinsDeploymentFlowLabel" xml:space="preserve">
+    <value>Fluxo:</value>
+  </data>
+  <data name="AboutJenkinsDeploymentFlowDescription" xml:space="preserve">
+    <value>GitHub (push e webhook) &amp;rarr; ngrok &amp;rarr; Jenkins no computador pessoal (checkout, build e testes) &amp;rarr; SSH &amp;rarr; EC2 (git pull e publicação) &amp;rarr; atualização da aplicação.</value>
+  </data>
+  <data name="AboutJenkinsScriptResponsibilitiesHeading" xml:space="preserve">
+    <value>O que o script de publicação faz</value>
+  </data>
+  <data name="AboutJenkinsScriptPublishFilesStep" xml:space="preserve">
+    <value>Recria a pasta de publicação e gera os arquivos da aplicação.</value>
+  </data>
+  <data name="AboutJenkinsScriptStopServicesStepPrefix" xml:space="preserve">
+    <value>Para os serviços envolvidos na atualização e copia as configurações do Nginx e das instâncias gerenciadas pelo</value>
+  </data>
+  <data name="AboutJenkinsScriptStartInstancesPrefix" xml:space="preserve">
+    <value>Inicia as instâncias</value>
+  </data>
+  <data name="AboutArchitecturePortsListConjunction" xml:space="preserve">
+    <value>e</value>
+  </data>
+  <data name="AboutJenkinsScriptPortsPrefix" xml:space="preserve">
+    <value>, nas portas</value>
+  </data>
+  <data name="AboutJenkinsScriptStartNginxSuffix" xml:space="preserve">
+    <value>, e o Nginx.</value>
+  </data>
+  <data name="AboutJenkinsScriptRecreateDockerInstancePrefix" xml:space="preserve">
+    <value>Reconstrói a imagem Docker e recria a instância</value>
+  </data>
+  <data name="AboutJenkinsScriptExposeContainerPortPrefix" xml:space="preserve">
+    <value>, expondo a porta</value>
+  </data>
+  <data name="AboutJenkinsScriptContainerInternalPortPrefix" xml:space="preserve">
+    <value>para a porta</value>
+  </data>
+  <data name="AboutJenkinsScriptContainerSuffix" xml:space="preserve">
+    <value>do container.</value>
+  </data>
+  <data name="AboutJenkinsScriptKeyVolumePrefix" xml:space="preserve">
+    <value>Mantém o volume de chaves de Data Protection em</value>
+  </data>
+  <data name="AboutJenkinsScriptRestartPolicyPrefix" xml:space="preserve">
+    <value>e configura o container com a política</value>
+  </data>
+  <data name="AboutJenkinsScriptDowntimeWarning" xml:space="preserve">
+    <value>Como o script para serviços durante o processo, essa estratégia pode causar uma breve indisponibilidade durante o deploy.</value>
+  </data>
+  <data name="AboutRedditDisclaimer" xml:space="preserve">
+    <value>Este é um projeto inspirado no Reddit, desenvolvido exclusivamente para fins de estudo de programação. Não é um produto oficial e não possui vínculo, afiliação ou patrocínio do Reddit.</value>
+  </data>
+  <data name="AboutProjectIntroduction" xml:space="preserve">
+    <value>Este é um projeto pessoal para experimentar e estudar</value>
+  </data>
+  <data name="AboutProjectFocus" xml:space="preserve">
+    <value>ASP.NET Core e infraestrutura de aplicações .NET em Linux/AWS</value>
+  </data>
+  <data name="AboutInfrastructureAccordionHeading" xml:space="preserve">
+    <value>Infraestrutura / Arquitetura</value>
+  </data>
+  <data name="AboutAuthenticationAccordionHeading" xml:space="preserve">
+    <value>Autenticação</value>
+  </data>
+  <data name="AboutPaginationAccordionHeading" xml:space="preserve">
+    <value>Paginação</value>
+  </data>
+  <data name="AboutBackButtonAccessibleLabel" xml:space="preserve">
+    <value>Voltar à página anterior</value>
+  </data>
+  <data name="AboutInfrastructureEnvironmentPrefix" xml:space="preserve">
+    <value>O projeto roda em uma</value>
+  </data>
+  <data name="AboutInfrastructureOverviewSuffix" xml:space="preserve">
+    <value>e atualmente explora:</value>
+  </data>
+  <data name="AboutTechnologyWebApplication" xml:space="preserve">
+    <value>— aplicação web</value>
+  </data>
+  <data name="AboutTechnologyReverseProxy" xml:space="preserve">
+    <value>— reverse proxy e load balancing</value>
+  </data>
+  <data name="AboutTechnologySystemdInstances" xml:space="preserve">
+    <value>— gerenciamento das instâncias nas portas 5000 e 5001</value>
+  </data>
+  <data name="AboutTechnologyDockerInstance" xml:space="preserve">
+    <value>— execução da instância na porta 5010</value>
+  </data>
+  <data name="AboutTechnologyHostingEnvironment" xml:space="preserve">
+    <value>— ambiente de hospedagem</value>
+  </data>
+  <data name="AboutTechnologyJenkinsSuffix" xml:space="preserve">
+    <value>com Jenkins</value>
+  </data>
+  <data name="AboutArchitectureHeading" xml:space="preserve">
+    <value>Arquitetura</value>
+  </data>
+  <data name="AboutArchitectureInstanceCountPrefix" xml:space="preserve">
+    <value>Atualmente existem</value>
+  </data>
+  <data name="AboutArchitectureInstanceCountLabel" xml:space="preserve">
+    <value>três instâncias da aplicação</value>
+  </data>
+  <data name="AboutArchitectureInstanceCountSuffix" xml:space="preserve">
+    <value>rodando na EC2:</value>
+  </data>
+  <data name="AboutArchitectureTableComponentHeading" xml:space="preserve">
+    <value>Componente</value>
+  </data>
+  <data name="AboutArchitectureTablePortHeading" xml:space="preserve">
+    <value>Porta</value>
+  </data>
+  <data name="AboutArchitectureTableRuntimeHeading" xml:space="preserve">
+    <value>Execução</value>
+  </data>
+  <data name="AboutArchitectureNginxRuntime" xml:space="preserve">
+    <value>Reverse proxy e load balancing</value>
+  </data>
+  <data name="AboutArchitectureAppServerLabel" xml:space="preserve">
+    <value>Servidor ASP.NET</value>
+  </data>
+  <data name="AboutArchitectureSystemdInstancesDescriptionPrefix" xml:space="preserve">
+    <value>As duas primeiras instâncias são executadas diretamente no Linux e gerenciadas pelo</value>
+  </data>
+  <data name="AboutArchitectureDockerInstanceDescriptionPrefix" xml:space="preserve">
+    <value>A terceira instância é executada dentro de um container Docker. O Docker faz parte do playground para experimentar a</value>
+  </data>
+  <data name="AboutArchitectureContainerizationLabel" xml:space="preserve">
+    <value>containerização de uma aplicação ASP.NET Core</value>
+  </data>
+  <data name="AboutArchitectureDockerComparisonSuffix" xml:space="preserve">
+    <value>e comparar essa abordagem com a execução via</value>
+  </data>
+  <data name="AboutArchitectureNginxRolePrefix" xml:space="preserve">
+    <value>O Nginx funciona como</value>
+  </data>
+  <data name="AboutArchitectureNginxLoadBalancingPrefix" xml:space="preserve">
+    <value>e permite experimentar</value>
+  </data>
+  <data name="AboutArchitectureLoadBalancingLabel" xml:space="preserve">
+    <value>load balancing entre múltiplas instâncias da aplicação</value>
+  </data>
+  <data name="AboutArchitecturePortsPrefix" xml:space="preserve">
+    <value>As aplicações nas portas</value>
+  </data>
+  <data name="AboutArchitecturePortsSuffix" xml:space="preserve">
+    <value>são instâncias independentes do mesmo projeto.</value>
+  </data>
+  <data name="AboutInstanceReloadAction" xml:space="preserve">
+    <value>Recarregar página</value>
+  </data>
+  <data name="AboutInstanceReloadHelp" xml:space="preserve">
+    <value>Para verificar sua requisição sendo respondida por outra instância da aplicação.</value>
+  </data>
+  <data name="AboutAuthenticationDescription" xml:space="preserve">
+    <value>Esta página está utilizando autenticação com Cookies e Anti-Forgery Token.</value>
+  </data>
+  <data name="AboutPageTitle" xml:space="preserve">
+    <value>Sobre o projeto</value>
+  </data>
+  <data name="AboutAuth" xml:space="preserve">
+    <value>Autenticação</value>
+  </data>
+  <data name="PreviewSavedPostsHeading" xml:space="preserve">
+    <value>Posts salvos.</value>
+  </data>
+  <data name="PreviewMainFeedHeading" xml:space="preserve">
+    <value>Feed principal.</value>
+  </data>
+  <data name="PostBookmarkRemoveAction" xml:space="preserve">
+    <value>Remover dos salvos</value>
+  </data>
+  <data name="PostBookmarkAddAction" xml:space="preserve">
+    <value>Salvar post</value>
+  </data>
+  <data name="PostOptions" xml:space="preserve">
+    <value>Opções da publicação</value>
+  </data>
+  <data name="SignInToSave" xml:space="preserve">
+    <value>Entre para salvar esta publicação</value>
+  </data>
+  <data name="BookmarkSaved" xml:space="preserve">
+    <value>Publicação salva.</value>
+  </data>
+  <data name="BookmarkRemoved" xml:space="preserve">
+    <value>Publicação removida dos salvos.</value>
+  </data>
+  <data name="BookmarkError" xml:space="preserve">
+    <value>Não foi possível atualizar os salvos. Tente novamente.</value>
+  </data>
+  <data name="PreviewBookmarkAddedNotice" xml:space="preserve">
+    <value>Post salvo nesta prévia.</value>
+  </data>
+  <data name="PreviewBookmarkRemovedNotice" xml:space="preserve">
+    <value>Post removido dos salvos.</value>
+  </data>
+  <data name="CommunityJoinStatusLabel" xml:space="preserve">
+    <value>Participando</value>
+  </data>
+  <data name="CommunityJoinActionLabel" xml:space="preserve">
+    <value>Participar</value>
+  </data>
+  <data name="PreviewCommunityJoinedNotice" xml:space="preserve">
+    <value>Você entrou na comunidade nesta prévia.</value>
+  </data>
+  <data name="PreviewCommunityLeftNotice" xml:space="preserve">
+    <value>Você saiu da comunidade nesta prévia.</value>
+  </data>
+  <data name="MarkdownExpandViewAction" xml:space="preserve">
+    <value>Usar visualização expandida</value>
+  </data>
+  <data name="MarkdownCollapseViewAction" xml:space="preserve">
+    <value>Usar visualização compacta</value>
+  </data>
+  <data name="PreviewSinglePostSortNotice" xml:space="preserve">
+    <value>Há apenas um post nesta prévia. A ordem permanece a mesma.</value>
+  </data>
+  <data name="PreviewCommentAddedNotice" xml:space="preserve">
+    <value>Comentário adicionado nesta prévia.</value>
+  </data>
+  <data name="ClipboardCopyFailureNotice" xml:space="preserve">
+    <value>Não foi possível copiar. Copie o endereço desta página para compartilhar.</value>
+  </data>
+  <data name="ClipboardCopySuccessNotice" xml:space="preserve">
+    <value>Link copiado!</value>
+  </data>
+  <data name="ClipboardShareSuccessNotice" xml:space="preserve">
+    <value>Link copiado para compartilhar.</value>
+  </data>
+  <data name="InvalidField" xml:space="preserve">
+    <value>Informe um valor válido.</value>
+  </data>
+  <data name="RequiredField" xml:space="preserve">
+    <value>Este campo é obrigatório.</value>
+  </data>
+  <data name="NumberField" xml:space="preserve">
+    <value>Informe um número.</value>
+  </data>
+  <data name="UnknownInstance" xml:space="preserve">
+    <value>Desconhecida</value>
+  </data>
+  <data name="PostLinkCopySuccessNotice" xml:space="preserve">
+    <value>Link do post copiado.</value>
+  </data>
+  <data name="UsernameNoWhitespace" xml:space="preserve">
+    <value>O nome de usuário não pode conter espaços em branco.</value>
+  </data>
+  <data name="SearchTitle" xml:space="preserve">
+    <value>Busca</value>
+  </data>
+  <data name="SearchResultsTitle" xml:space="preserve">
+    <value>Busca: {0}</value>
+  </data>
+  <data name="SearchEyebrow" xml:space="preserve">
+    <value>ENCONTRE NO PLAYGROUND</value>
+  </data>
+  <data name="SearchIntro" xml:space="preserve">
+    <value>Pesquise posts, comunidades e usuários.</value>
+  </data>
+  <data name="SearchPlaceholder" xml:space="preserve">
+    <value>Digite um termo para buscar</value>
+  </data>
+  <data name="SearchFilters" xml:space="preserve">
+    <value>Filtros de busca</value>
+  </data>
+  <data name="SearchTabPosts" xml:space="preserve">
+    <value>Posts</value>
+  </data>
+  <data name="SearchTabCommunities" xml:space="preserve">
+    <value>Comunidades</value>
+  </data>
+  <data name="SearchTabUsers" xml:space="preserve">
+    <value>Usuários</value>
+  </data>
+  <data name="SearchEmptyQuery" xml:space="preserve">
+    <value>Faça uma busca</value>
+  </data>
+  <data name="SearchEmptyQueryHint" xml:space="preserve">
+    <value>Digite um termo na barra de busca para encontrar posts, comunidades ou usuários.</value>
+  </data>
+  <data name="SearchNoPosts" xml:space="preserve">
+    <value>Nenhum post encontrado</value>
+  </data>
+  <data name="SearchNoCommunities" xml:space="preserve">
+    <value>Nenhuma comunidade encontrada</value>
+  </data>
+  <data name="SearchNoUsers" xml:space="preserve">
+    <value>Nenhum usuário encontrado</value>
+  </data>
+  <data name="SearchNoResultsHint" xml:space="preserve">
+    <value>Experimente outro termo ou troque o filtro de resultados.</value>
+  </data>
+  <data name="SearchUnavailable" xml:space="preserve">
+    <value>Busca indisponível</value>
+  </data>
+  <data name="SearchUnavailableHint" xml:space="preserve">
+    <value>Não foi possível concluir a busca agora. Tente novamente em instantes.</value>
+  </data>
+  <data name="SearchLimitPosts" xml:space="preserve">
+    <value>Exibindo até 100 posts. Refine o termo para ver resultados mais específicos.</value>
+  </data>
+  <data name="SearchLimitCommunities" xml:space="preserve">
+    <value>Exibindo até 100 comunidades. Refine o termo para ver resultados mais específicos.</value>
+  </data>
+  <data name="SearchLimitUsers" xml:space="preserve">
+    <value>Exibindo até 100 usuários. Refine o termo para ver resultados mais específicos.</value>
+  </data>
+  <data name="SearchUserCardHint" xml:space="preserve">
+    <value>Perfil de usuário no Playground.</value>
+  </data>
+  <data name="SearchViewProfile" xml:space="preserve">
+    <value>Ver perfil ↗</value>
+  </data>
+  <data name="EditRecordAction" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="DeleteRecordAction" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="AlteracoesSalvasSuccess" xml:space="preserve">
+    <value>Alterações salvas com sucesso!</value>
+  </data>
+  <data name="ExclusaoSucesso" xml:space="preserve">
+    <value>Post excluído com sucesso!</value>
+  </data>
+  <data name="PostSaveChangesAction" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="MarkdownEditorAccessibleLabel" xml:space="preserve">
+    <value>Edição de texto avançada</value>
+  </data>
+  <data name="MarkdownBold" xml:space="preserve">
+    <value>Negrito</value>
+  </data>
+  <data name="MarkdownItalic" xml:space="preserve">
+    <value>Itálico</value>
+  </data>
+  <data name="MarkdownHeading" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="MarkdownQuote" xml:space="preserve">
+    <value>Citação</value>
+  </data>
+  <data name="MarkdownList" xml:space="preserve">
+    <value>Lista com marcadores</value>
+  </data>
+  <data name="MarkdownNumberedList" xml:space="preserve">
+    <value>Lista numerada</value>
+  </data>
+  <data name="MarkdownCode" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="MarkdownLink" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="MarkdownUnavailable" xml:space="preserve">
+    <value>Não foi possível carregar o editor avançado. Você pode continuar usando a área de texto.</value>
+  </data>
+  <data name="MarkdownPreview" xml:space="preserve">
+    <value>Pré-visualização</value>
+  </data>
+  <data name="DoNotShowAgain" xml:space="preserve">
+    <value>Não mostrar novamente</value>
+  </data>
+  <data name="UsernameOrEmail" xml:space="preserve">
+    <value>Nome de usuário ou e-mail</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Deseja mesmo excluir este item?</value>
+  </data>
+  <data name="ConfirmYes" xml:space="preserve">
+    <value>Sim</value>
+  </data>
+  <data name="ConfirmNo" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="FeedByDate" xml:space="preserve">
+    <value>Por data</value>
+  </data>
+  <data name="FeedMyCommunities" xml:space="preserve">
+    <value>Minhas comunidades</value>
+  </data>
+  <data name="FeedMyCommunitiesHelp" xml:space="preserve">
+    <value>Posts das comunidades das quais você participa ou é criador, dos mais recentes para os mais antigos.</value>
+  </data>
+  <data name="FeedAllPostsHelp" xml:space="preserve">
+    <value>Todos os posts, dos mais recentes para os mais antigos.</value>
+  </data>
+  <data name="HeadingEditCommunity" xml:space="preserve">
+    <value>EDITE SUA COMUNIDADE</value>
+  </data>
+  <data name="CommunityEditHeading" xml:space="preserve">
+    <value>Edite sua comunidade</value>
+  </data>
+  <data name="CommentLogin" xml:space="preserve">
+    <value>Entre na sua conta para comentar.</value>
+  </data>
+  <data name="FalhaNaoPodeExcluirPostComVotos" xml:space="preserve">
+    <value>Não é possível excluir Posts com votos.</value>
+  </data>
+  <data name="FalhaApenasCriadorPodeEditar" xml:space="preserve">
+    <value>Apenas o usuário que criou a Comunidade pode editar!</value>
+  </data>
+  <data name="FalhaEditComunidadeNaoEncontrada" xml:space="preserve">
+    <value>Ops! Comunidade não encontrada. Tente novamente mais tarde.</value>
+  </data>
+  <data name="FeedMaisAntigos" xml:space="preserve">
+    <value>Mais Antigos</value>
+  </data>
+  <data name="FeedMaisRecentes" xml:space="preserve">
+    <value>Mais Recentes</value>
+  </data>
+  <data name="FeedLeastRecentHelp" xml:space="preserve">
+    <value>Mais Recentes</value>
+  </data>
+  <data name="FeedMostRecentHelp" xml:space="preserve">
+    <value>Mais Antigos</value>
+  </data>
+  <data name="FalhaNomeUsuarioLongo" xml:space="preserve">
+    <value>Informe um nome com até 50 caracteres.</value>
+  </data>
+  <data name="FalhaEmailLongo" xml:space="preserve">
+    <value>Informe um e-mail válido com até 255 caracteres.</value>
+  </data>
+  <data name="FalhaUsuarioDeveTerSenha" xml:space="preserve">
+    <value>Senha é um campo obrigatório.</value>
+  </data>
+  <data name="SiteSettings" xml:space="preserve">
+    <value>Configurações do site</value>
+  </data>
+  <data name="NotImplementedYet" xml:space="preserve">
+    <value>Ainda não implementado</value>
+  </data>
+  <data name="SiteTheme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Claro</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Escuro</value>
+  </data>
+  <data name="SiteLanguage" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="LanguagePortuguese" xml:space="preserve">
+    <value>PT-BR</value>
+  </data>
+  <data name="LanguageEnglish" xml:space="preserve">
+    <value>EN</value>
+  </data>
+  <data name="ShowMoreContentAction" xml:space="preserve">
+    <value>Mostrar mais</value>
+  </data>
+  <data name="CommunitySidebarShowLessAction" xml:space="preserve">
+    <value>Mostrar menos</value>
+  </data>
+  <data name="ProfileEditTitle" xml:space="preserve">
+    <value>Editar perfil</value>
+  </data>
+  <data name="ProfileBack" xml:space="preserve">
+    <value>← Voltar para o perfil</value>
+  </data>
+  <data name="ProfileEditIntro" xml:space="preserve">
+    <value>Conte um pouco sobre você para a comunidade.</value>
+  </data>
+  <data name="ProfileDescriptionPlaceholder" xml:space="preserve">
+    <value>Seus interesses, hobbies ou o que você quiser compartilhar.</value>
+  </data>
+  <data name="ProfileDescriptionHelp" xml:space="preserve">
+    <value>Opcional. Até 1.000 caracteres.</value>
+  </data>
+  <data name="ProfileDescriptionTooLong" xml:space="preserve">
+    <value>A descrição deve ter no máximo 1.000 caracteres.</value>
+  </data>
+  <data name="ProfileNotFound" xml:space="preserve">
+    <value>Perfil não encontrado.</value>
+  </data>
+  <data name="ProfileSaved" xml:space="preserve">
+    <value>Descrição atualizada com sucesso.</value>
+  </data>
+  <data name="DeletedUser" xml:space="preserve">
+    <value>u/[deletado]</value>
+  </data>
+  <data name="DeleteAccountConfirmation" xml:space="preserve">
+    <value>Excluir sua conta? Seus dados pessoais e participações nas comunidades serão removidos. Posts e comentários continuarão publicados como usuário excluído. Esta ação não pode ser desfeita.</value>
+  </data>
+  <data name="FalhaJaExisteNomeComunidade" xml:space="preserve">
+    <value>Esse nome de comunidade já existe.</value>
+  </data>
+  <data name="FalhaUsuarioDeveTerPerfil" xml:space="preserve">
+    <value>Ocorreu um erro inesperado! Usuário sem Perfil.</value>
+  </data>
+  <data name="ProfilePersonalFeed" xml:space="preserve">
+    <value>Feed Pessoal</value>
+  </data>
+  <data name="ProfilePosts" xml:space="preserve">
+    <value>Posts</value>
+  </data>
+  <data name="NavBarPerfilRegular" xml:space="preserve">
+    <value>Trocar Perfil</value>
+  </data>
+  <data name="NavBarPerfilAdmin" xml:space="preserve">
+    <value>Trocar Perfil</value>
+  </data>
+  <data name="AsideUsuarios" xml:space="preserve">
+    <value>Usuários</value>
+  </data>
+  <data name="AsideComunidades" xml:space="preserve">
+    <value>Comunidades</value>
+  </data>
+  <data name="AsidePosts" xml:space="preserve">
+    <value>Posts</value>
+  </data>
+  <data name="AsideAppSettings" xml:space="preserve">
+    <value>Configurações</value>
+  </data>
+</root>

@@ -1,0 +1,113 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Models.Comunidade.ComunidadePaginaModel
+@{
+    ViewData["UseCommunityFrame"] = false;
+    ViewData["Title"] = Model.Comunidade.Nome;
+}
+
+<partial name="_MarkdownStyles" />
+
+<main id="feed" class="community-page community-hub" tabindex="-1">
+    <div class="hub-banner" aria-label="@Localizer["CommunityBannerAccessibleLabel"]"><span aria-hidden="true">c/@Model.Comunidade.Nome</span></div>
+    <header class="hub-heading">
+        <div class="hub-identity"><span class="hub-avatar" aria-label="@Localizer["CommunityIconAccessibleLabel"]">@Model.Comunidade.Nome.FirstOrDefault().ToString().ToUpperInvariant()</span><h1>c/@Model.Comunidade.Nome</h1></div>
+        <div class="hub-actions">
+            <a class="hub-button" asp-action="Postar" asp-route-id="@Model.Comunidade.Id">@Localizer["CommunityViewCreatePostAction"]</a>
+            @if (Model.Participa)
+            {
+                <span class="hub-button hub-joined">@Localizer["CommunityViewJoinedStatus"]</span>
+            }
+            else if (User.Identity?.IsAuthenticated == true)
+            {
+
+                <form method="post" asp-action="Unir" asp-route-id="@Model.Comunidade.Id"><button class="hub-button hub-primary" type="submit">@Localizer["CommunityJoinAction"]</button></form>
+            }
+            else
+            {
+
+                <a class="hub-button hub-primary" asp-controller="Usuario" asp-action="Login">@Localizer["CommunityJoinAction"]</a>
+            }
+        </div>
+    </header>
+    <div class="hub-columns">
+        <section aria-labelledby="posts-title">
+            <div class="hub-feed-heading"><h2 id="posts-title">@Localizer["CommunityViewPostsHeading"]</h2><span>@Localizer["CommunityViewSortNewest"]</span></div>
+            @if (Model.Posts.Count == 0)
+            {
+                <div class="hub-empty"><h3>@(Model.Pagina == 1 ? Localizer["CommunityViewEmptyPostsHeading"].Value : Localizer["CommunityViewNoMorePostsHeading"].Value)</h3><p>@Localizer["CommunityViewEmptyDescription"]</p><a class="hub-button" asp-action="Postar" asp-route-id="@Model.Comunidade.Id">@Localizer["CommunityPostCreateAction"]</a></div>
+            }
+            @foreach (var post in Model.Posts)
+            {
+                <article class="hub-post post-card-link">
+                    <div class="hub-post-meta">
+                        @if (post.AutorId > 0) { <a asp-controller="Perfil" asp-action="Index" asp-route-id="@post.AutorId">
+                            <strong>u/@post.Autor</strong>
+                        </a> }
+                        else { <strong>@Localizer["DeletedUser"]</strong> }
+                        <partial name="_CriadoEm" model="post.CriadoEm" />
+                    </div>
+                    <h3>
+                        <a class="post-card-destination" asp-controller="Post" asp-action="View" asp-route-id="@post.Id">
+                            @post.Titulo
+                        </a>
+                    </h3>
+                    @if (post.Conteudo.Length > 600)
+                    {
+                        @if (post.ConteudoMarkDown)
+                        {
+                            <div class="post-markdown" style="cursor: pointer" data-post-markdown>@(post.Conteudo.Substring(0, 600) + "... ")</div>
+                            <div class="onhover-white">
+                                @Localizer["ShowMoreContentAction"]
+                            </div>
+                        }
+                        else
+                        {
+                            <p>@post.Conteudo.Substring(0, 600)</p>
+                            <div class="onhover-white">
+                                @Localizer["ShowMoreContentAction"]
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        @if (post.ConteudoMarkDown)
+                        {
+                            <div class="post-markdown" data-post-markdown>@post.Conteudo</div>
+                        }
+                        else
+                        {
+                            <p>@post.Conteudo</p>
+                        }
+                    }
+                    <partial name="_PostVotes" model="@(new WebApplication1.Models.FeedPostModel { Id = post.Id, Upvotes = post.Upvotes, MeuUpvote = post.MeuUpvote, MeuDownvote = post.MeuDownvote, TotalComentarios = post.TotalComentarios })" />
+                </article>
+            }
+            <nav class="hub-pagination" aria-label="@Localizer["CommunityPostsPaginationLabel"]">
+                @if (Model.Pagina > 1)
+                {
+                    <a class="hub-button" asp-action="View" asp-route-id="@Model.Comunidade.Id" asp-route-pagina="@(Model.Pagina - 1)">@Localizer["CommunityPostsPreviousPage"]</a>
+                }
+                @if (Model.TemProxima)
+                {
+                    <a class="hub-button" asp-action="View" asp-route-id="@Model.Comunidade.Id" asp-route-pagina="@(Model.Pagina + 1)">@Localizer["CommunityPostsNextPage"]</a>
+                }
+            </nav>
+        </section>
+        <aside class="hub-about" aria-label="@Localizer["CommunityDetailsAboutLabel"]">
+            <p class="eyebrow">@Localizer["HeadingAboutCommunity"]</p><h2>@Model.Comunidade.Nome</h2>
+            <p class="hub-description">@(string.IsNullOrWhiteSpace(Model.Comunidade.Descricao) ? Localizer["CommunityDetailsMissingDescription"].Value : Model.Comunidade.Descricao)</p>
+            <dl><dt>@Localizer["CommunityCreatedByLabel"]</dt><dd>@(string.IsNullOrEmpty(Model.Criador) ? Localizer["DeletedUser"].Value : "u/" + Model.Criador)</dd><dt>@Localizer["CommunityCreatedAtLabel"]</dt><dd>@Model.Comunidade.CriadoEm.ToString("d")</dd><dt>@Localizer["CommunityMemberCountLabel"]</dt><dd>@Model.Membros</dd></dl>
+            @if (Model.PodeGerenciar)
+            {
+                <a class="hub-button" asp-action="Criar" asp-route-id="@Model.Comunidade.Id">@Localizer["CommunityEditAction"]</a>
+                <a class="community-danger-link d-block mt-3" asp-action="Excluir" asp-route-id="@Model.Comunidade.Id">@Localizer["CommunityDeleteAction"]</a>
+            }
+        </aside>
+    </div>
+</main>
+
+
+@section Scripts {
+    <partial name="_MarkdownScripts" />
+    <script src="~/js/post-markdown.js" asp-append-version="true"></script>
+}

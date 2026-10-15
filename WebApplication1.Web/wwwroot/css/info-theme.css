@@ -1,0 +1,25 @@
+.info-layout { background: var(--bg); color: var(--text); }
+.info-layout > header.bg-white { background: var(--bg) !important; border-color: var(--line) !important; box-shadow: none !important; }
+.info-layout .login-brand { display: inline-flex; align-items: center; color: var(--text); font-size: 26px; font-weight: 750; letter-spacing: -1px; }
+.info-layout .login-brand:hover { color: var(--accent); }
+.info-layout .login-brand-symbol { display: inline-flex; position: relative; width: 35px; height: 35px; align-items: center; justify-content: center; margin-right: 10px; padding-bottom: 5px; border-radius: 12px; background: var(--accent); color: #182319; font-size: 32px; line-height: 1; }
+.info-layout .login-brand-symbol span { position: absolute; top: 0; right: 4px; font-size: 20px; }
+.info-layout .login-brand-dot { color: var(--accent); }
+html[data-theme="light"] .info-layout .login-brand-symbol { color: #fff; }
+.info-layout .navbar { background: var(--bg); }
+.info-layout :is(.navbar-brand, .navbar-brand:hover) { color: var(--text); }
+.info-layout :is(.border, .border-top, .border-bottom) { border-color: var(--line) !important; }
+.info-layout .text-muted { color: var(--muted) !important; }
+.info-layout .user-menu-name { background: var(--panel); border-color: var(--line); color: var(--text); }
+.info-layout .user-menu-avatar { background: var(--hover); color: var(--text); }
+.info-layout .navbar-toggler { color: var(--text); border-color: var(--line); }
+.info-layout .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%2394a3a3' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+.info-layout :is(.accordion-item, .accordion-button) { background: var(--panel); color: var(--text); border-color: var(--line); }
+.info-layout .accordion-button:not(.collapsed) { background: var(--hover); color: var(--accent); box-shadow: inset 0 -1px 0 var(--line); }
+.info-layout .accordion-button:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+html:not([data-theme="light"]) .info-layout .accordion-button::after { filter: grayscale(1) brightness(3); }
+.info-layout .table { color: var(--text); border-color: var(--line); --bs-table-bg: var(--panel); --bs-table-striped-bg: var(--hover); --bs-table-striped-color: var(--text); --bs-table-hover-bg: var(--hover); --bs-table-hover-color: var(--text); }
+.info-layout .btn-outline-secondary { color: var(--text); border-color: var(--line); }
+.info-layout .btn-outline-secondary:hover { background: var(--hover); }
+.info-layout .page-content a { color: var(--accent); }
+.info-layout code { color: var(--accent); }

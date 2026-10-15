@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Help" xml:space="preserve"><value>Migração de dados SQL Server → PostgreSQL ou PostgreSQL → PostgreSQL
+Uso: dotnet run --project WebApplication1.Infrastructure/DataMigration/WebApplication1.DataMigration.csproj -- [--postgres-to-postgres] --dry-run|--execute
+--dry-run copia, valida e desfaz a transação. --execute confirma a cópia. Use --postgres-to-postgres para selecionar PostgreSQL também como origem.
+Configure ConnectionStrings:SqlServer, ConnectionStrings:Postgres e Migration:SourceTimeZone no appsettings.json do utilitário. Variáveis MIGRATION_* sobrescrevem o arquivo.
+Para PostgreSQL → PostgreSQL configure MIGRATION_POSTGRES_SOURCE_CONNECTION; os schemas opcionais são MIGRATION_POSTGRES_SOURCE_SCHEMA e MIGRATION_POSTGRES_SCHEMA (ambos public).
+Opcionais: MIGRATION_SQLSERVER_SCHEMA (dbo), MIGRATION_POSTGRES_SCHEMA (public), MIGRATION_COMMAND_TIMEOUT_SECONDS (120), MIGRATION_COLUMN_TIME_ZONES (JSON), MIGRATION_LANGUAGE (pt-BR/en).
+O destino precisa ter as sete tabelas criadas e vazias. Consulte DataMigration/README.md.</value></data>
+  <data name="MissingSetting" xml:space="preserve"><value>Configure {0} no appsettings.json ou por variável de ambiente.</value></data>
+  <data name="InvalidSetting" xml:space="preserve"><value>Configuração inválida: {0}.</value></data>
+  <data name="ProtectedDestination" xml:space="preserve"><value>O banco de destino {0} está protegido. A migração foi bloqueada.</value></data>
+  <data name="AmbiguousDate" xml:space="preserve"><value>Data ambígua ou inexistente no fuso configurado para {0}. Revise a origem e o fuso antes de repetir.</value></data>
+  <data name="DestinationNotEmpty" xml:space="preserve"><value>A tabela de destino {0} contém dados. A cópia foi interrompida; nenhum registro existente foi apagado.</value></data>
+  <data name="CountMismatch" xml:space="preserve"><value>A contagem de registros divergiu em {0}. A transação não será confirmada.</value></data>
+  <data name="StartingExecute" xml:space="preserve"><value>Iniciando cópia transacional. As gravações concorrentes serão bloqueadas durante a operação.</value></data>
+  <data name="StartingDryRun" xml:space="preserve"><value>Iniciando simulação com cópia e rollback. As gravações concorrentes serão bloqueadas durante a operação.</value></data>
+  <data name="Copying" xml:space="preserve"><value>Copiando {0}...</value></data>
+  <data name="Copied" xml:space="preserve"><value>{0}: {1} registros copiados na transação.</value></data>
+  <data name="Committed" xml:space="preserve"><value>Migração confirmada: {0} registros. Os próximos IDs foram ajustados.</value></data>
+  <data name="RolledBack" xml:space="preserve"><value>Simulação concluída: {0} registros validados. A transação foi desfeita, incluindo o ajuste dos próximos IDs.</value></data>
+  <data name="Cancelled" xml:space="preserve"><value>Operação cancelada. Transações não confirmadas serão desfeitas. Se o cancelamento ocorreu durante o commit, confira o destino.</value></data>
+  <data name="Failed" xml:space="preserve"><value>Falha na migração (código: {0}). Confira as conexões, permissões, tipos e restrições. Transações não confirmadas serão desfeitas. Se houve perda de conexão no commit, confira o destino antes de repetir. Dados e credenciais foram omitidos.</value></data>
+</root>

@@ -1,0 +1,41 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<WebApplication1.SharedResource> Localizer
+@model WebApplication1.Models.FeedPostModel
+
+@{
+    var cardEstatico = ViewData["PostCardStatic"] as bool? == true;
+}
+
+<div class="post-card-actions mt-3">
+<form class="post-votes vote-control" data-vote-login="@Localizer["VoteLogin"]" data-vote-retry="@Localizer["VoteRetry"]" data-vote-error="@Localizer["VoteError"]" data-remove-upvote="@Localizer["RemoveUpvote"]" data-upvote="@Localizer["Upvote"]" data-remove-downvote="@Localizer["RemoveDownvote"]" data-downvote="@Localizer["Downvote"]" method="post" asp-controller="Post" asp-action="Votar" asp-route-id="@Model.Id">
+    <button type="submit" name="tipo" value="0" aria-label="@(Model.MeuUpvote ? Localizer["RemoveUpvote"] : Localizer["Upvote"])" aria-pressed="@(Model.MeuUpvote ? "true" : "false")" title="@(Model.MeuUpvote ? Localizer["RemoveUpvote"] : Localizer["Upvote"])">
+        <svg class="vote-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 3.5 21.5 17.2a1.6 1.6 0 0 1-1.35 2.5H3.85a1.6 1.6 0 0 1-1.35-2.5L12 3.5Z"/>
+        </svg>
+    </button>
+    <span class="upvote-total" aria-live="polite" aria-label="@Localizer["VoteBalance"]" title="@Localizer["VoteDifference"]">@Model.Upvotes</span>
+    <button type="submit" name="tipo" value="1" aria-pressed="@(Model.MeuDownvote ? "true" : "false")" aria-label="@(Model.MeuDownvote ? Localizer["RemoveDownvote"] : Localizer["Downvote"])" title="@(Model.MeuDownvote ? Localizer["RemoveDownvote"] : Localizer["Downvote"])">
+        <svg class="vote-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 20.5 2.5 6.8a1.6 1.6 0 0 1 1.35-2.5h16.3a1.6 1.6 0 0 1 1.35 2.5L12 20.5Z"/>
+        </svg>
+    </button>
+    <span class="vote-status visually-hidden" role="status"></span>
+</form>
+@if (cardEstatico)
+{
+    <span class="pill-button post-comment-count" aria-label="@Localizer["CommentCount", Model.TotalComentarios]">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 9 9 0 0 1-4-.9L3 21l1.9-5.5a9 9 0 0 1-.9-4A8.5 8.5 0 0 1 12.5 3H13a8.5 8.5 0 0 1 8 8v.5Z" />
+        </svg>
+        <span>@Model.TotalComentarios</span>
+    </span>
+}
+else
+{
+    <a class="pill-button post-comment-count" asp-controller="Post" asp-action="View" asp-route-id="@Model.Id" aria-label="@Localizer["CommentCount", Model.TotalComentarios]" title="@Localizer["ViewComments"]">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 9 9 0 0 1-4-.9L3 21l1.9-5.5a9 9 0 0 1-.9-4A8.5 8.5 0 0 1 12.5 3H13a8.5 8.5 0 0 1 8 8v.5Z" />
+        </svg>
+        <span>@Model.TotalComentarios</span>
+    </a>
+}
+</div>
